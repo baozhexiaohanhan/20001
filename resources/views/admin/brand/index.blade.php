@@ -2,12 +2,12 @@
 @section('title', '商品品牌列表')
 @section('content')
 
-    <center><h1>商品品牌列表<a style="float:right" href="{{url('/brand/brand')}}" type="button" class="btn btn-default">添加</a></h1></center><hr/>
+    <center><h1>商品品牌列表<a style="float:right" href="{{url('/brand/brand')}}" type="button" class="btn btn-info">添加</a></h1></center><hr/>
 <div class="table-responsive">
     <form>
         <input type="text" name="name"  placeholder="请输入品牌关键字" value="{{$query['name']??''}}">
         <input type="text" name="url"  placeholder="请输入网址关键字" value="{{$query['url']??''}}">
-        <button>搜索</button>
+        <button class="btn btn-info">搜索</button>
     </form>
     <table class="table">
         <thead>
@@ -28,8 +28,8 @@
                 <td>{{$v->brand_url}}</td>
                 <td><img src="{{$v->brand_logo}}" width="50"></td>
                 <th>{{$v->brand_desc}}</th>
-                <th><a href="{{url('/brand/edit/'.$v->brand_id)}}" id="{{$v->brand_id}}" type="button" class="btn btn-dange">编辑</a>
-                <a href="javascript:void(0);" id="{{$v->brand_id}}" type="button" class="btn btn-danger">删除</a></th>
+                <th><a href="{{url('/brand/edit/'.$v->brand_id)}}" id="{{$v->brand_id}}" type="button" class="btn btn-success">编辑</a>
+                <a href="javascript:void(0);" id="{{$v->brand_id}}" type="button" class="btn btn-warning">删除</a></th>
             </tr>
         @endforeach
 
@@ -44,7 +44,7 @@
 </div>
     <script>
         //ajax删除
-        $('.btn-danger').click(function(){
+        $('.btn-warning').click(function(){
             var id = $(this).attr('id');
             var isdel = confirm('确定删除吗?');
             if(isdel == true){

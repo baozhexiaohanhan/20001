@@ -23,24 +23,24 @@
 
         <label for="firstname" class="col-sm-2 control-label">品牌LOGO</label>
 
-        <div class="col-sm-4">
+        <div class="layui-input-block">
             <div class="layui-upload-drag" id="test10">
-                <input type="hidden" name="brand_logo">
                 <i class="layui-icon"></i>
                 <p>点击上传，或将文件拖拽到此处</p>
-                @if($brand->brand_logo)<img src="{{env('IMG_URL')}}{{$brand->brand_logo}}" width="40"height="40">@endif
-                <div class="layui-hide" id="uploadDemoView">
+                <div @if(!$brand->brand_logo) class="layui-hide" @endif id="uploadDemoView">
                     <hr>
-                    <img src="" alt="上传成功后渲染" style="max-width: 196px">
+                    <img src="{{$brand->brand_logo}}" alt="上传成功后渲染" style="max-width: 196px">
                 </div>
             </div>
+            <input type="hidden" name="brand_logo" @if($brand->brand_logo) value="{{$brand->brand_logo}}" @endif>
         </div>
+
     </div>
     <div class="form-group">
         <label for="firstname" class="col-sm-2 control-label">品牌描述</label>
         <div class="col-sm-8">
 			<textarea type="text" class="form-control" id="firstname" name="brand_desc"
-                      placeholder="请输入品牌描述"></textarea>
+                      placeholder="请输入品牌描述">{{$brand->brand_desc}}</textarea>
         </div>
     </div>
     <div class="form-group">
