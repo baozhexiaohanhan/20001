@@ -16,9 +16,23 @@ class BrandController extends Controller
      */
     public function index()
     {
+        $brand_name = request()->brand_name;
+        $where = [];
+        if($brand_name){
+            $where[] = ['brand_name','like',"%$brand_name%"];
+        }
+        $brand_url = request()->brand_url;
+        if($brand_url){
+            $where[] = ['brand_url','like',"%$brand_url%"];
+        }
+        $query = request()->all();
+//        dd($query);
         $bran = new Brand();
-        $brand = $bran->paginate(3);
-        return view('admin.brand.index',['brand'=>$brand]);
+        $brand = Brand::where($where)->orderby('brand_id','desc')->paginate(3);
+        if(request()->ajax()){
+            return view('admin.brand.ajax',['brand'=>$brand,'query'=>$query]);
+        }
+        return view('admin.brand.index',['brand'=>$brand,'query'=>$query]);
     }
     public function uploads(request $request){
 
