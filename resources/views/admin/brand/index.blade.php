@@ -39,7 +39,7 @@
         <tr>
             <td colspan="6">
                 {{$brand->appends(["query"=>$query])->links('vendor.pagination.adminshop')}}
-                <button class="mordel">批量删除</button>
+                <button class="mordel btn btn-info">批量删除</button>
             </td>
         </tr>
         </tbody>
