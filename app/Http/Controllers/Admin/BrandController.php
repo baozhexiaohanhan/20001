@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Model\Brand;
+use phpDocumentor\Reflection\DocBlock\Tags\Reference\Reference;
 use Validator;
 use App\Http\Requests\StoreBlogPost;
 class BrandController extends Controller
@@ -128,8 +130,17 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
+
         $res = Brand::where('brand_id',$id)->delete();
 
+//            $ids = request()->all();
+//        dd($ids);
+//            if(!$ids){
+//                return ;
+//            }
+//            foreach ($ids as $k=>$v){
+//                $res = Brand::destroy($v);
+//            }
         if($res){
             if(request()->ajax()){
                 return json_encode(['error_no'=>'1','error_msg'=>'删除成功']);
@@ -137,5 +148,18 @@ class BrandController extends Controller
             return redirect('brand/index');
         }
 
+    }
+
+    public function change(Request $request){
+        $brand_name =$request->brand_name;
+        $id = $request->id;
+        if(!$brand_name || !$id){
+            return response()->json(['code'=>'3','msg'=>'参数缺失']);
+        }
+        $res = Brand::where('brand_id',$id)->update(['brand_name'=>$brand_name]);
+        if($res){
+            return response()->json(['code'=>'0','msg'=>'修改成功']);
+
+        }
     }
 }

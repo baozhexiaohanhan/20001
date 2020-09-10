@@ -2,7 +2,7 @@
     <tr>
         <td><input type="checkbox" name="checkboxtwo" lay-skin="primary"  ></td>
         <td>{{$v->brand_id}}</td>
-        <td>{{$v->brand_name}}</td>
+        <td id="{{$v->brand_id}}"><span class="aww">{{$v->brand_name}}</span></td>
         <td>{{$v->brand_url}}</td>
         <td><img src="{{$v->brand_logo}}" width="50"></td>
         <th>{{$v->brand_desc}}</th>

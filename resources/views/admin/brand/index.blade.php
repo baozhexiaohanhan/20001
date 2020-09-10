@@ -12,7 +12,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th width="5%">
+            <th width="6%">
                 <input type="checkbox" name="checkboxone"  id="layui-form-checkbox" lay-skin="primary" >
             </th>
             <th>品牌ID</th>
@@ -28,17 +28,18 @@
             <tr>
                 <td><input type="checkbox" name="checkboxtwo" lay-skin="primary"  ></td>
                 <td>{{$v->brand_id}}</td>
-                <td>{{$v->brand_name}}</td>
+                <td id="{{$v->brand_id}}"><span class="aww">{{$v->brand_name}}</span></td>
                 <td>{{$v->brand_url}}</td>
                 <td><img src="{{$v->brand_logo}}" width="50"></td>
-                <th>{{$v->brand_desc}}</th>
-                <th><a href="{{url('/brand/edit/'.$v->brand_id)}}" id="{{$v->brand_id}}" type="button" class="btn btn-success">编辑</a>
-                <a href="javascript:void(0);" id="{{$v->brand_id}}" type="button" class="btn btn-warning">删除</a></th>
+                <td>{{$v->brand_desc}}</td>
+                <td><a href="{{url('/brand/edit/'.$v->brand_id)}}" id="{{$v->brand_id}}" type="button" class="btn btn-success">编辑</a>
+                <a href="javascript:void(0);" id="{{$v->brand_id}}" type="button" class="btn btn-warning">删除</a></td>
             </tr>
         @endforeach
         <tr>
             <td colspan="6">
-                {{$brand->appends($query)->links('vendor.pagination.adminshop')}}
+                {{$brand->appends(["query"=>$query])->links('vendor.pagination.adminshop')}}
+                <button class="mordel">批量删除</button>
             </td>
         </tr>
         </tbody>
@@ -47,8 +48,26 @@
 
 </div>
     <script>
+        //几点几改
+        $(document).on('click','.aww',function (){
+            var brand_name = $(this).text();
+            var id = $(this).parent().attr('id');
+            $(this).parent().html('<input type="text" name="input_name" class="changname input_name_'+id+'"  value='+brand_name+'>');
+            $('.input_name_'+id).val('').focus().val(brand_name);
+        });
+        $(document).on('blur','.changname',function () {
+            var newname = $(this).val();
+            var id = $(this).parent().attr('id');
+            var obj = $(this);
+            $.get('/brand/change', {id: id, brand_name: newname}, function (res) {
+            if(res.code==0){
+                alert(res.msg);
+                obj.parent().html('<span class="aww">'+newname+'</span>')
+            }
+            },'json')
+        });
         //ajax删除
-        $('.btn-warning').click(function(){
+            $(document).on('click','.btn-warning',function (){
             var id = $(this).attr('id');
             var isdel = confirm('确定删除吗?');
             if(isdel == true){
@@ -76,5 +95,17 @@
                 $('input[name="checkboxtwo"]').prop('checked', false);
             }
         });
+        // $(document).on('click','.mordel',function (){
+        //     var ids = new Array();
+        //     $('input[name="checkboxtwo"]:checked').each(function (i,k){
+        //         ids.push($(this).val());
+        //     })
+        //     $.get('/brand/destroy',{ids,ids},function(rest){
+        //         if(rest.error_no == '1'){
+        //             location.reload();
+        //         }
+        //     },'json');
+
+
     </script>
 @endsection
