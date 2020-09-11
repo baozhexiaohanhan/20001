@@ -24,3 +24,9 @@ Route::get('/brand/edit/{id}','Admin\BrandController@edit');
 Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
+
+
+Route::view('/login','admin.login');
+Route::any('/admin/logindo','Admin\LoginController@logindo');
+Route::view('/reg','admin.reg');
+Route::any('/admin/Doreg','Admin\RegController@Doreg');
