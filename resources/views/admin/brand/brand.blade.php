@@ -2,7 +2,7 @@
 @section('title', '商品添加')
 @section('content')
 
-    <center><h1>商品品牌添加</h1></center><hr/>
+    <center><h1>添加品牌<a style="float:right" href="{{url('/brand/index')}}" type="button" class="btn btn-info">列表</a></h1></center><hr/>
     <form action="{{url('/brand/store')}}" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
         @if (session('msg'))
             <div class="alert alert-success">

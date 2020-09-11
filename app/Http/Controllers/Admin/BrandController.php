@@ -37,8 +37,6 @@ class BrandController extends Controller
         return view('admin.brand.index',['brand'=>$brand,'query'=>$query]);
     }
     public function uploads(request $request){
-
-
         if ($request->hasFile('file') && $request->file('file')->isValid()) {
             $photo = $request->file;
             $store_result = $photo->store('/upload');
@@ -132,15 +130,6 @@ class BrandController extends Controller
     {
 
         $res = Brand::where('brand_id',$id)->delete();
-
-//            $ids = request()->all();
-//        dd($ids);
-//            if(!$ids){
-//                return ;
-//            }
-//            foreach ($ids as $k=>$v){
-//                $res = Brand::destroy($v);
-//            }
         if($res){
             if(request()->ajax()){
                 return json_encode(['error_no'=>'1','error_msg'=>'删除成功']);
