@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//品牌管理
 //  后台首页.品牌
 Route::get('/brand/brand','Admin\BrandController@create');
 Route::post('/brand/store','Admin\BrandController@store');
@@ -26,6 +27,13 @@ Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
 
+//分类管理
+Route::get('cate','Admin\CateController@index');//列表展示
+Route::get('/cate/create','Admin\CateController@create');//添加页面
+Route::post('/cate/store','Admin\CateController@store');//执行添加
+Route::get('/cate/edit/{id}','Admin\CateController@edit');//编辑展示页面
+Route::post('/cate/update/{id}','Admin\CateController@update');//执行编辑
+Route::get('/cate/destroy/{id}','Admin\CateController@destroy');//删除
 //商品
 Route::prefix('student')->group(function() {
     Route::get('create', 'studentController@create');
