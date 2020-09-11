@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//品牌管理
+//  后台首页.品牌
 Route::get('/brand/brand','Admin\BrandController@create');
 Route::post('/brand/store','Admin\BrandController@store');
 Route::get('/brand/index','Admin\BrandController@index');
@@ -25,8 +27,35 @@ Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
 
+<<<<<<< HEAD
 
 Route::view('/login','admin.login');
 Route::any('/admin/logindo','Admin\LoginController@logindo');
 Route::view('/reg','admin.reg');
 Route::any('/admin/Doreg','Admin\RegController@Doreg');
+=======
+//分类管理
+Route::get('cate','Admin\CateController@index');//列表展示
+Route::get('/cate/create','Admin\CateController@create');//添加页面
+Route::post('/cate/store','Admin\CateController@store');//执行添加
+Route::get('/cate/edit/{id}','Admin\CateController@edit');//编辑展示页面
+Route::post('/cate/update/{id}','Admin\CateController@update');//执行编辑
+Route::get('/cate/destroy/{id}','Admin\CateController@destroy');//删除
+//商品
+Route::prefix('student')->group(function() {
+    Route::get('create', 'studentController@create');
+    Route::post('store', 'studentController@store');
+    Route::get('index', 'studentController@index');
+    Route::get('edit/{id}', 'studentController@edit');
+    Route::post('update/{id}', 'studentController@update');
+    Route::get('destroy/{id}', 'studentController@destroy');
+});
+
+
+
+
+Route::get('/user/index','Admin\UserController@index');
+Route::get('/user/create','Admin\UserController@create');
+Route::post('/user/store','Admin\UserController@store');
+Route::get('/user/destroy/{id}','Admin\UserController@destroy');
+>>>>>>> f68e351316808a3b2cc8ef0fa31c8bf0eeee73a3
