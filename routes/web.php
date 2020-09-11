@@ -27,13 +27,11 @@ Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
 
-<<<<<<< HEAD
 
 Route::view('/login','admin.login');
 Route::any('/admin/logindo','Admin\LoginController@logindo');
 Route::view('/reg','admin.reg');
 Route::any('/admin/Doreg','Admin\RegController@Doreg');
-=======
 //分类管理
 Route::get('cate','Admin\CateController@index');//列表展示
 Route::get('/cate/create','Admin\CateController@create');//添加页面
@@ -58,4 +56,3 @@ Route::get('/user/index','Admin\UserController@index');
 Route::get('/user/create','Admin\UserController@create');
 Route::post('/user/store','Admin\UserController@store');
 Route::get('/user/destroy/{id}','Admin\UserController@destroy');
->>>>>>> f68e351316808a3b2cc8ef0fa31c8bf0eeee73a3
