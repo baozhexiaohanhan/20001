@@ -53,14 +53,12 @@
                     <dl class="layui-nav-child">
                         <dd><a href="/brand/brand">添加品牌</a></dd>
                         <dd><a href="/brand/index">品牌列表</a></dd>
-<<<<<<< HEAD
                         <dd><a href="/student/create">添加商品</a></dd>
                         <dd><a href="/student/index">商品列表</a></dd>
                         <dd><a href="/cate/create">添加分类</a></dd>
                         <dd><a href="/cate">分类列表</a></dd>
                         <dd><a href="">超链接</a></dd>
 
-=======
                         {{--<dd><a href="">超链接</a></dd>--}}
                     </dl>
                 </li>
@@ -69,7 +67,6 @@
                     <dl class="layui-nav-child">
                         <dd><a href="/student/create">添加商品</a></dd>
                         <dd><a href="/student/index">商品列表</a></dd>
->>>>>>> master
                     </dl>
                 </li>
                 <li class="layui-nav-item">
