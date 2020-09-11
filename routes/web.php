@@ -27,6 +27,7 @@ Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
 
+<<<<<<< HEAD
 //分类管理
 Route::get('cate','Admin\CateController@index');//列表展示
 Route::get('/cate/create','Admin\CateController@create');//添加页面
@@ -46,3 +47,10 @@ Route::prefix('student')->group(function() {
 
 
 
+=======
+
+Route::get('/user/index','Admin\UserController@index');
+Route::get('/user/create','Admin\UserController@create');
+Route::post('/user/store','Admin\UserController@store');
+Route::get('/user/destroy/{id}','Admin\UserController@destroy');
+>>>>>>> geyuqi
