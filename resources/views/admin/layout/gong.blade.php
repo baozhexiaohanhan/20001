@@ -32,7 +32,7 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-
+                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599823077101&di=7ca4e4a459bed8cdb2534a7720e49c92&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fc995d143ad4bd113cce8af145bafa40f4bfb05ea.jpg" class="layui-nav-img">
                     贤心
                 </a>
                 <dl class="layui-nav-child">
@@ -53,9 +53,6 @@
                     <dl class="layui-nav-child">
                         <dd><a href="/brand/brand">添加品牌</a></dd>
                         <dd><a href="/brand/index">品牌列表</a></dd>
-{{--                        <dd><a href="">超链接</a></dd>--}}
-
-                        {{--<dd><a href="">超链接</a></dd>--}}
                     </dl>
                 </li>
                 <li class="layui-nav-item">
