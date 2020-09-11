@@ -32,7 +32,7 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    
                     贤心
                 </a>
                 <dl class="layui-nav-child">
@@ -49,22 +49,31 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">品牌管理i</a>
+                    <a class="" href="javascript:;">品牌管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="/brand/brand">添加品牌</a></dd>
                         <dd><a href="/brand/index">品牌列表</a></dd>
-
                         <dd><a href="/student/create">添加商品</a></dd>
                         <dd><a href="/student/index">商品列表</a></dd>
+                        <dd><a href="/cate/create">添加分类</a></dd>
+                        <dd><a href="/cate">分类列表</a></dd>
                         <dd><a href="">超链接</a></dd>
+
+                        {{--<dd><a href="">超链接</a></dd>--}}
                     </dl>
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">商品管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">添加商品</a></dd>
-                        <dd><a href="javascript:;">商品列表</a></dd>
-
+                        <dd><a href="/student/create">添加商品</a></dd>
+                        <dd><a href="/student/index">商品列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">分类管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/cate/create">添加分类</a></dd>
+                        <dd><a href="/cate">分类列表</a></dd>
                     </dl>
                 </li>
                
