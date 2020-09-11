@@ -24,3 +24,9 @@ Route::get('/brand/edit/{id}','Admin\BrandController@edit');
 Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
+
+
+Route::get('/user/index','Admin\UserController@index');
+Route::get('/user/create','Admin\UserController@create');
+Route::post('/user/store','Admin\UserController@store');
+Route::get('/user/destroy/{id}','Admin\UserController@destroy');
