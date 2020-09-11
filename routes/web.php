@@ -27,6 +27,11 @@ Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
 
+
+Route::view('/login','admin.login');
+Route::any('/admin/logindo','Admin\LoginController@logindo');
+Route::view('/reg','admin.reg');
+Route::any('/admin/Doreg','Admin\RegController@Doreg');
 //分类管理
 Route::get('cate','Admin\CateController@index');//列表展示
 Route::get('/cate/create','Admin\CateController@create');//添加页面
