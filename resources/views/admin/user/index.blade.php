@@ -2,6 +2,13 @@
 @section('title', '商品品牌列表')
 @section('content')
 <a href="{{url('/user/create')}}">添加</a>
+<div>
+
+<form>
+<input type="text" name="user_name"  placeholder="请输入品牌关键字" value="{{$query['user_name']??''}}">
+<button class="btn btn-info">搜索</button>
+</form>
+
 <table class="table">
         <thead>
         <tr>
@@ -22,12 +29,41 @@
             
             <th> <a href="javascript:void()" onclick="if(confirm('确认删除此用户')){location.href='{{url('/user/destroy/'.$v->user_id)}}'; }">删除</a></th>
         </tr>
-
-
             @endforeach
+            <div>
+      <tr>
+        <th colspan="8">
+        {{$user->links('vendor.pagination.adminshop')}}
+        
+        </th>
+      </tr>
+   </div>
+
+
        </tbody>
     </table>
 
-
+</div>
 
 @endsection
+
+
+<script src="/layui/layui.js"></script>
+<script src="/admin/js/jquery.min.js"></script>
+<script>
+layui.use(['element', 'form'],function(){
+  var element = layui.element;
+  var form = layui.form;
+  
+});
+
+    $(document).on('click','#layui-laypage-1 a ',function(){
+            var url = $(this).attr('href');
+            $.get(url,function(result){
+                $('tbody').html(result);
+            })
+            return false;
+        });
+    
+
+</script>
