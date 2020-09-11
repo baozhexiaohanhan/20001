@@ -21,7 +21,7 @@ class LoginController extends Controller
         if($admin->admin_pwd!=$post['admin_pwd']){
             return redirect('/login')->with('msg','密码有误');
         }
-//        session(['user'=>$admin]);
+        session(['user'=>$admin]);
         return redirect('/brand/index');
     }
 }
