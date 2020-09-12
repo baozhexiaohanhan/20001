@@ -3,6 +3,7 @@
 @section('content')
 
 
+<center><h1>管理员添加<a style="float:right" href="{{url('/user/index')}}" type="button" class="btn btn-info">列表</a></h1></center><hr/>
 
 @if ($errors->any())
 <div class="alert alert-danger" style="padding-bottom:20px;padding-left:20px">
@@ -13,10 +14,6 @@
   </ul>
 </div>
 @endif
-
-
-
-
 
 
 <form action="{{url('/user/store')}}" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">

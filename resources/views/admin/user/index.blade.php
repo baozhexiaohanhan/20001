@@ -1,7 +1,10 @@
 @extends('admin.layout.gong')
 @section('title', '商品品牌列表')
 @section('content')
-<a href="{{url('/user/create')}}">添加</a>
+
+<center><h1>管理员列表<a style="float:right" href="{{url('/user/create')}}" type="button" class="btn btn-info">添加</a></h1></center><hr/>
+
+<!-- <a href="{{url('/user/create')}}">添加</a> -->
 <table class="table">
         <thead>
         <tr>
