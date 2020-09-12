@@ -32,12 +32,8 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-<<<<<<< HEAD
                 <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599902556704&di=fa116b4c08cb736842708c803e9b95d0&imgtype=0&src=http%3A%2F%2Fcdn.u2.huluxia.com%2Fg3%2FM02%2F75%2FB4%2FwKgBOVu5PQWAOMlbAAQmCKTTqVQ694.jpg" class="layui-nav-img">
                     贤心
-=======
-                    贤心<img src="">
->>>>>>> 0f1e2032c6b6b03c853241739704a766e643d1ef
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>

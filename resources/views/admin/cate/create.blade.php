@@ -2,6 +2,8 @@
 @section('title', '分类添加')
 @section('content')
 
+<center><h1>分类添加<a style="float:right" href="{{url('/cate')}}" type="button" class="btn btn-info">列表</a></h1></center><hr/>
+
 <form action="{{url('/cate/store')}}" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
   @csrf
   <!-- {{csrf_field()}}

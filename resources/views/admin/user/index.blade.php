@@ -1,13 +1,9 @@
 @extends('admin.layout.gong')
 @section('title', '商品品牌列表')
 @section('content')
-<<<<<<< HEAD
 
 <center><h1>管理员列表<a style="float:right" href="{{url('/user/create')}}" type="button" class="btn btn-info">添加</a></h1></center><hr/>
 
-<!-- <a href="{{url('/user/create')}}">添加</a> -->
-=======
-<a href="{{url('/user/create')}}">添加</a>
 <div>
 
 <form>
@@ -15,7 +11,6 @@
 <button class="btn btn-info">搜索</button>
 </form>
 
->>>>>>> 0f1e2032c6b6b03c853241739704a766e643d1ef
 <table class="table">
         <thead>
         <tr>
@@ -34,7 +29,7 @@
             <th>{{$v->user_name}}</th>
             <th>{{$v->user_number}}</th>
             
-            <th> <a href="javascript:void()" onclick="if(confirm('确认删除此用户')){location.href='{{url('/user/destroy/'.$v->user_id)}}'; }">删除</a></th>
+            <th> <a href="javascript:void()" class="btn btn-warning" onclick="if(confirm('确认删除此用户')){location.href='{{url('/user/destroy/'.$v->user_id)}}'; }">删除</a></th>
         </tr>
             @endforeach
             <div>
