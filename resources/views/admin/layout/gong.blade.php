@@ -32,8 +32,7 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-
-                    贤心
+                    贤心<img src="">
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>

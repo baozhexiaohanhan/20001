@@ -97,17 +97,6 @@
                 $('input[name="checkboxtwo"]').prop('checked', false);
             }
         });
-        // $(document).on('click','.mordel',function (){
-        //     var ids = new Array();
-        //     $('input[name="checkboxtwo"]:checked').each(function (i,k){
-        //         ids.push($(this).val());
-        //     })
-        //     $.get('/brand/destroy',{ids,ids},function(rest){
-        //         if(rest.error_no == '1'){
-        //             location.reload();
-        //         }
-        //     },'json');
-
 
     </script>
 @endsection
