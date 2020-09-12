@@ -116,6 +116,10 @@ class CateController extends Controller
     public function destroy($id)
     {
        $res = DB::table('category')->where('cate_id',$id)->delete();
+       if(request()->ajax()){
+        return response()->json(['code'=>0,'msg'=>'删除成功']);
+       }
+
        if($res){
         return redirect('/cate');
        }

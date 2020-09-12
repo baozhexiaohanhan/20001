@@ -14,8 +14,18 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return view('admin/user/index',['user'=>$user]);
+        $user_name = request()->user_name;
+        $where = [];
+        if($user_name){
+            $where[] =['user_name','like',"%$user_name%"]; 
+        }
+        $query = request()->all();
+        $user = User::where($where)->orderBy('user_id','desc')->paginate(2);
+        if(request()->ajax()){
+            return view('admin/user/ajaxpage',['user'=>$user,'user_name'=>$user_name,'query'=>$query]);
+        }
+
+        return view('admin/user/index',['user'=>$user,'user_name'=>$user_name,'query'=>$query]);
     }
 
     /**
@@ -47,7 +57,10 @@ class UserController extends Controller
             'user_name.unique'=>'管理员已存在',
             'user_number.required'=>'手机号不能为空',
         ]);
+       
+
         $res = User::insert($post);
+        
         if($res){
             return redirect('/user/index');
         }
