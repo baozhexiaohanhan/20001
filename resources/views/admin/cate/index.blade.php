@@ -36,7 +36,7 @@
 		$.get('/cate/destroy/'+cate_id,function(res){
 			alert(res.msg);
 			$(obj).parents('tr').hide();
-			<!-- location.reload(); -->
+			// location.reload(); 
 		},'json');
 	}
 	//ajax分页
