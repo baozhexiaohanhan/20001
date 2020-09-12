@@ -32,11 +32,7 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-<<<<<<< HEAD
                 <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599902556704&di=fa116b4c08cb736842708c803e9b95d0&imgtype=0&src=http%3A%2F%2Fcdn.u2.huluxia.com%2Fg3%2FM02%2F75%2FB4%2FwKgBOVu5PQWAOMlbAAQmCKTTqVQ694.jpg" class="layui-nav-img">
-=======
-                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599823077101&di=7ca4e4a459bed8cdb2534a7720e49c92&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fc995d143ad4bd113cce8af145bafa40f4bfb05ea.jpg" class="layui-nav-img">
->>>>>>> xiaobai
                     贤心
                 </a>
                 <dl class="layui-nav-child">
