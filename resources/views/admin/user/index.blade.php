@@ -50,8 +50,6 @@
 @endsection
 
 
-<script src="/layui/layui.js"></script>
-<script src="/admin/js/jquery.min.js"></script>
 <script>
 layui.use(['element', 'form'],function(){
   var element = layui.element;
