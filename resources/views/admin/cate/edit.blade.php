@@ -25,15 +25,15 @@
   <div class="form-group">
     <label for="lastname" class="col-sm-2 control-label">是否显示</label>
     <div class="col-sm-10">
-      <input type="radio" name="cate_show" value="1" checked>显示
-           <input type="radio" name="cate_show" value="2">不显示
+      <input type="radio" name="cate_show" value="是" checked>显示
+           <input type="radio" name="cate_show" value="否">不显示
     </div>
   </div>
   <div class="form-group">
     <label for="lastname" class="col-sm-2 control-label">是否导航显示</label>
     <div class="col-sm-10">
-      <input type="radio" name="cate_shows" value="1" checked>显示
-           <input type="radio" name="is_nav_show" value="2">不显示
+      <input type="radio" name="cate_shows" value="是" checked>显示
+           <input type="radio" name="cate_shows" value="否">不显示
     </div>
   </div>
  
