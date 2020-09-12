@@ -1,6 +1,8 @@
 @extends('admin.layout.gong')
 @section('title', '分类列表')
 @section('content')
+
+<center><h1>分类列表<a style="float:right" href="{{url('/cate/create')}}" type="button" class="btn btn-info">添加</a></h1></center><hr/>
 <table class="table table-striped">
 	<thead>
 		<tr>
