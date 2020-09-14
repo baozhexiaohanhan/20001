@@ -76,7 +76,13 @@
                         <dd><a href="/user/index">管理员列表</a></dd>
                     </dl>
                 </li>
-
+                <li class="layui-nav-item">
+                    <a href="javascript:;">管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/rele/create">角色管理员</a></dd>
+                        <dd><a href="/rele/index">角色列表</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>

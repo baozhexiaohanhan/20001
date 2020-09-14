@@ -49,10 +49,10 @@ Route::prefix('student')->group(function() {
     Route::get('destroy/{id}', 'studentController@destroy');
 });
 
-
-
-
 Route::get('/user/index','Admin\UserController@index');
 Route::get('/user/create','Admin\UserController@create');
 Route::post('/user/store','Admin\UserController@store');
 Route::get('/user/destroy/{id}','Admin\UserController@destroy');
+
+Route::get('/rele/index','Rele\AdminController@index');
+Route::get('/rele/create','Rele\AdminController@create');
