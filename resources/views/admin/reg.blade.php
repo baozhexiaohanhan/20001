@@ -1,6 +1,7 @@
 @extends('admin.layout.gong')
 @section('title', '注册')
 @section('content')
+
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- <center><h1>注册<a style="float:right" href="{{url('/login')}}" type="button" class="btn btn-info">登录</a></h1></center><hr/> -->
 <header>
@@ -59,14 +60,14 @@
 
 </div><!--maincont-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/layui/jquery.min.js"></script>
+<!-- <script src="/layui/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/layui/bootstrap.min.js"></script>
-<script src="/layui/style.js"></script>
-</body>
-</html>
+<!-- <script src="/layui/bootstrap.min.js"></script>
+<script src="/layui/style.js"></script> -->
+<!-- </body>
+</html> -->
 
-<script src="/static/jquery.js"></script>
+<!-- <script src="/static/jquery.js"></script> -->
 <script>
 
 </script>

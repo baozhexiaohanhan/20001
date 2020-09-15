@@ -27,7 +27,7 @@ Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
 
-
+//注册。登录
 Route::view('/login','admin.login');
 Route::any('/admin/logindo','Admin\LoginController@logindo');
 Route::view('/reg','admin.reg');
@@ -49,10 +49,21 @@ Route::prefix('student')->group(function() {
     Route::get('destroy/{id}', 'studentController@destroy');
 });
 
-
-
-
+//管理员
 Route::get('/user/index','Admin\UserController@index');
 Route::get('/user/create','Admin\UserController@create');
 Route::post('/user/store','Admin\UserController@store');
 Route::get('/user/destroy/{id}','Admin\UserController@destroy');
+
+
+
+
+
+
+
+//角色管理
+Route::get('/role/create','Admin\RoleController@create');
+Route::post('/role/store','Admin\RoleController@store');
+Route::get('/role/index','Admin\RoleController@index');
+Route::get('/role/destroy/{id}','Admin\RoleController@destroy');
+
