@@ -49,11 +49,6 @@ Route::prefix('student')->group(function() {
     Route::get('destroy/{id}', 'studentController@destroy');
 });
 
-Route::get('/user/index','Admin\UserController@index');
-Route::get('/user/create','Admin\UserController@create');
-Route::post('/user/store','Admin\UserController@store');
-Route::get('/user/destroy/{id}','Admin\UserController@destroy');
-
 Route::prefix('role')->group(function (){
     Route::get('/','Admin\RoleController@index')->name('role');
     Route::get('/create','Admin\RoleController@create')->name('role.create');
@@ -64,4 +59,10 @@ Route::prefix('menu')->group(function (){
     Route::get('/','Admin\MenuController@index')->name('menu');
     Route::get('/create','Admin\MenuController@create')->name('menu.create');
     Route::post('/store','Admin\MenuController@store');
+});
+
+Route::prefix('admin')->group(function (){
+    Route::get('/','Admin\AdminController@index')->name('admin');
+    Route::get('/create','Admin\AdminController@create')->name('admin.create');
+    Route::post('/store','Admin\AdminController@store');
 });
