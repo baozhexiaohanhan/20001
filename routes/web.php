@@ -54,5 +54,14 @@ Route::get('/user/create','Admin\UserController@create');
 Route::post('/user/store','Admin\UserController@store');
 Route::get('/user/destroy/{id}','Admin\UserController@destroy');
 
-Route::get('/rele/index','Rele\AdminController@index');
-Route::get('/rele/create','Rele\AdminController@create');
+Route::prefix('role')->group(function (){
+    Route::get('/','Admin\RoleController@index')->name('role');
+    Route::get('/create','Admin\RoleController@create')->name('role.create');
+    Route::post('/store','Admin\RoleController@store');
+});
+
+Route::prefix('menu')->group(function (){
+    Route::get('/','Admin\MenuController@index')->name('menu');
+    Route::get('/create','Admin\MenuController@create')->name('menu.create');
+    Route::post('/store','Admin\MenuController@store');
+});
