@@ -70,13 +70,7 @@
                         <dd><a href="/cate">分类列表</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">角色管理</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="/role/create">角色分类</a></dd>
-                        <dd><a href="/role">角色列表</a></dd>
-                    </dl>
-                </li>
+                
                 <li class="layui-nav-item">
                     <a href="javascript:;">菜单管理</a>
                     <dl class="layui-nav-child">
@@ -84,17 +78,14 @@
                         <dd><a href="/menu">菜单列表</a></dd>
                     </dl>
                 </li>
-<<<<<<< HEAD
                 <li class="layui-nav-item">
                     <a href="javascript:;">角色管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="/role/create">添加角色</a></dd>
-                        <dd><a href="/role/index">角色列表</a></dd>
+                        <dd><a href="/role">角色列表</a></dd>
                     </dl>
                 </li>
 
-=======
->>>>>>> 37a9f1401cf85e0534f470e7a153e5b02e20f47c
             </ul>
         </div>
     </div>
