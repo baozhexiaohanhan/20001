@@ -49,12 +49,16 @@ Route::prefix('student')->group(function() {
     Route::get('destroy/{id}', 'studentController@destroy');
 });
 
+<<<<<<< HEAD
 //管理员
+=======
+>>>>>>> 37a9f1401cf85e0534f470e7a153e5b02e20f47c
 Route::get('/user/index','Admin\UserController@index');
 Route::get('/user/create','Admin\UserController@create');
 Route::post('/user/store','Admin\UserController@store');
 Route::get('/user/destroy/{id}','Admin\UserController@destroy');
 
+<<<<<<< HEAD
 
 
 
@@ -67,3 +71,16 @@ Route::post('/role/store','Admin\RoleController@store');
 Route::get('/role/index','Admin\RoleController@index');
 Route::get('/role/destroy/{id}','Admin\RoleController@destroy');
 
+=======
+Route::prefix('role')->group(function (){
+    Route::get('/','Admin\RoleController@index')->name('role');
+    Route::get('/create','Admin\RoleController@create')->name('role.create');
+    Route::post('/store','Admin\RoleController@store');
+});
+
+Route::prefix('menu')->group(function (){
+    Route::get('/','Admin\MenuController@index')->name('menu');
+    Route::get('/create','Admin\MenuController@create')->name('menu.create');
+    Route::post('/store','Admin\MenuController@store');
+});
+>>>>>>> 37a9f1401cf85e0534f470e7a153e5b02e20f47c

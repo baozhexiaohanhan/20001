@@ -81,6 +81,7 @@
             }
 
         });
+            //分页
         $(document).on('click','#layui-laypage-1 a ',function(){
             var url = $(this).attr('href');
             $.get(url,function(result){
