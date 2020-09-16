@@ -18,9 +18,9 @@ Route::get('/', function () {
 });
 //品牌管理
 //  后台首页.品牌
-Route::get('/brand/brand','Admin\BrandController@create');
+Route::get('/brand/brand','Admin\BrandController@create')->middleware('checklogin');
 Route::post('/brand/store','Admin\BrandController@store');
-Route::get('/brand/index','Admin\BrandController@index');
+Route::get('/brand/index','Admin\BrandController@index')->middleware('checklogin');
 Route::post('/brand/uploads','Admin\BrandController@uploads');
 Route::get('/brand/edit/{id}','Admin\BrandController@edit');
 Route::post('/brand/update/{id}','Admin\BrandController@update');
