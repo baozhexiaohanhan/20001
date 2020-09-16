@@ -27,7 +27,7 @@ Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
 
-
+//注册。登录
 Route::view('/login','admin.login');
 Route::any('/admin/logindo','Admin\LoginController@logindo');
 Route::view('/reg','admin.reg');
@@ -49,6 +49,13 @@ Route::prefix('student')->group(function() {
     Route::get('destroy/{id}', 'studentController@destroy');
 });
 
+//管理员
+
+Route::get('/user/index','Admin\UserController@index');
+Route::get('/user/create','Admin\UserController@create');
+Route::post('/user/store','Admin\UserController@store');
+Route::get('/user/destroy/{id}','Admin\UserController@destroy');
+
 Route::prefix('role')->group(function (){
     Route::get('/','Admin\RoleController@index')->name('role');
     Route::get('/create','Admin\RoleController@create')->name('role.create');
@@ -62,7 +69,7 @@ Route::prefix('menu')->group(function (){
 });
 
 Route::prefix('admin')->group(function (){
-    Route::get('/','Admin\AdminController@index')->name('admin');
+    Route::get('/','Admin\AdminController@index')->name('index');
     Route::get('/create','Admin\AdminController@create')->name('admin.create');
     Route::post('/store','Admin\AdminController@store');
 });

@@ -1,4 +1,5 @@
 @extends('admin.layout.gong')
+
 @section('title', '商品添加')
 @section('content')
 
@@ -14,6 +15,7 @@
             <label for="firstname" class="col-sm-2 control-label">角色名称</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="firstname" name="role_name"
+
                        placeholder="请输入角色名称">
             </div>
         </div>

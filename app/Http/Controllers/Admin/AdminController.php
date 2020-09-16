@@ -45,7 +45,7 @@ class AdminController extends Controller
         $post = $request->except('_token');
         $res = Admin::create($post);
         if($res){
-            return redirect('/admin');
+            return view('admin.admin.index');
         }
     }
 
