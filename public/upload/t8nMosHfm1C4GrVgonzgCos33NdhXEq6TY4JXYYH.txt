@@ -1,0 +1,37 @@
+﻿array_column — 返回数组中指定的一列
+array_pop — 将数组最后一个单元弹出（出栈）
+array_push — 将一个或多个单元压入数组的末尾（入栈） 
+array_shift — 将数组开头的单元移出数组 
+array_unshift — 在数组开头插入一个或多个单元 
+array_chunk — 将一个数组分割成多个
+array_merge — 合并一个或多个数组
+array_diff — 计算数组的差集
+array_intersect — 计算数组的交集
+array_unique — 移除数组中重复的值
+array_rand — 从数组中随机取出一个或多个单元 
+array_product — 计算数组中所有值的乘积
+array_sum — 计算数组中所有值的和 
+array_count_values — 统计数组中所有的值出现的次数
+array_combine — 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值 
+array_search — 在数组中搜索给定的值，如果成功则返回相应的键名 
+array_slice — 从数组中取出一段
+array_values — 返回数组中所有的值
+array_keys — 返回数组中部分的或所有的键名
+array_key_exists — 检查给定的键名或索引是否存在于数组中
+is_array — 检测变量是否是数组
+in_array — 检查数组中是否存在某个值
+array_fill — 用给定的值填充数组
+array_fill_keys — 使用指定的键和值填充数组
+array_replace — 使用传递的数组替换第一个数组的元素
+sort() - 以升序对数组排序
+rsort() - 以降序对数组排序
+asort() - 根据值，以升序对关联数组进行排序
+ksort() - 根据键，以升序对关联数组进行排序
+arsort() - 根据值，以降序对关联数组进行排序
+krsort() - 根据键，以降序对关联数组进行排序
+usort — 使用用户自定义的比较函数对数组中的值进行排序
+uasort — 使用用户自定义的比较函数对数组中的值进行排序并保持索引关联
+uksort — 使用用户自定义的比较函数对数组中的键名进行排序
+
+
+		

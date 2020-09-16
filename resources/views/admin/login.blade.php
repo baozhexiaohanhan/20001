@@ -1,30 +1,51 @@
-<header>
-    <a href="javascript:history.back(-1)" class="back-off fl"><span class="glyphicon glyphicon-menu-left"></span></a>
-    <div class="head-mid">
-        <h1>会员登录</h1>
-    </div>
-</header>
-<div class="head-top">
 
-</div><!--head-top/-->
-<form action="{{url('/admin/logindo')}}" method="post" class="reg-login">
-    @csrf
-    <b style="color: red">{{session('msg')}}</b>
-    <div class="lrBox">
-        <div class="lrList">用户名：<input type="text" placeholder="输入用户名" name="admin_name" /></div>
-        <div class="lrList">密码：<input type="password" placeholder="输入密码" name="admin_pwd" /></div>
-    </div><!--lrBox/-->
-    <div class="lrSub">
-        <input type="submit" value="立即登录" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="./layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/admin/css/login.css" />
+</head>
+<body class="beg-login-bg">
+    <div class="beg-login-box">
+        <header>
+              <h1><font color="red">登录</font></h1>
+        </header>
+        <div class="beg-login-main">
+             <center><b style="color: red">{{session('msg')}}</b></center>
+            <form action="{{url('/admin/logindo')}}" class="layui-form" method="post">
+                <div class="layui-form-item">
+                    <label class="beg-login-icon">
+                        <i class="layui-icon">&#xe612;</i>
+                    </label>
+                    <input type="text" lay-verify="required" name="admin_name" autocomplete="off" placeholder="这里输入账号" class="layui-input" lay-verType="tips">
+                </div>
+                <div class="layui-form-item">
+                    <label class="beg-login-icon">
+                        <i class="layui-icon">&#xe642;</i>
+                    </label>
+                    <input type="password" lay-verify="required" name="pwd" autocomplete="off" placeholder="这里输入密码" class="layui-input" lay-verType="tips">
+                </div>
+                <div class="layui-form-item">
+                    <div class="beg-pull">
+                        <button type="submit" class="layui-btn layui-btn-normal" style="width:100%;">
+                            登　　录
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <footer>
+            <p>power by dw © </p>
+        </footer>
     </div>
-</form><!--reg-login/-->
-<div class="height1"></div>
-
-</div><!--maincont-->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/static/index/js/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/static/index/js/bootstrap.min.js"></script>
-<script src="/static/index/js/style.js"></script>
+    <script type="text/javascript" src="/admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./layui/layui.js"></script>
+    <script type="text/javascript" src="/admin/js/login.js"></script>
 </body>
 </html>
+
+<script type="text/javascript"></script>

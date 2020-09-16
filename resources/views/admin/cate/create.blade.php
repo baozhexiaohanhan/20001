@@ -2,6 +2,8 @@
 @section('title', '分类添加')
 @section('content')
 
+<center><h1>分类添加<a style="float:right" href="{{url('/cate')}}" type="button" class="btn btn-info">列表</a></h1></center><hr/>
+
 <form action="{{url('/cate/store')}}" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
   @csrf
   <!-- {{csrf_field()}}
@@ -9,7 +11,7 @@
   <div class="form-group">
     <label for="firstname" class="col-sm-2 control-label">分类名称</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="cate_name" id="firstname" 
+      <input type="text" class="form-control" name="cate_name" id="firstname"
            placeholder="请输入分类名称">
     </div>
   </div>
@@ -27,18 +29,18 @@
   <div class="form-group">
     <label for="lastname" class="col-sm-2 control-label">是否显示</label>
     <div class="col-sm-10">
-      <input type="radio" name="cate_show" value="1" checked>显示
-           <input type="radio" name="is_show" value="2">不显示
+      <input type="radio" name="cate_show" value="是" checked>显示
+           <input type="radio" name="cate_show" value="否">不显示
     </div>
   </div>
   <div class="form-group">
     <label for="lastname" class="col-sm-2 control-label">是否导航显示</label>
     <div class="col-sm-10">
-      <input type="radio" name="cate_shows" value="1" checked>显示
-           <input type="radio" name="is_nav_show" value="2">不显示
+      <input type="radio" name="cate_shows" value="是" checked>显示
+           <input type="radio" name="cate_shows" value="否">不显示
     </div>
   </div>
- 
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">提交</button>

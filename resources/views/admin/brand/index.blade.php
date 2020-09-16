@@ -81,6 +81,7 @@
             }
 
         });
+            //分页
         $(document).on('click','#layui-laypage-1 a ',function(){
             var url = $(this).attr('href');
             $.get(url,function(result){
@@ -97,17 +98,6 @@
                 $('input[name="checkboxtwo"]').prop('checked', false);
             }
         });
-        // $(document).on('click','.mordel',function (){
-        //     var ids = new Array();
-        //     $('input[name="checkboxtwo"]:checked').each(function (i,k){
-        //         ids.push($(this).val());
-        //     })
-        //     $.get('/brand/destroy',{ids,ids},function(rest){
-        //         if(rest.error_no == '1'){
-        //             location.reload();
-        //         }
-        //     },'json');
-
 
     </script>
 @endsection

@@ -20,6 +20,7 @@
             <li class="layui-nav-item"><a href="">控制台</a></li>
             <li class="layui-nav-item"><a href="/brand/index">商品管理</a></li>
             <li class="layui-nav-item"><a href="/user/index">用户</a></li>
+            <li class="layui-nav-item"><a href="/reg">注册</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">其它系统</a>
                 <dl class="layui-nav-child">
@@ -32,7 +33,7 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599902556704&di=fa116b4c08cb736842708c803e9b95d0&imgtype=0&src=http%3A%2F%2Fcdn.u2.huluxia.com%2Fg3%2FM02%2F75%2FB4%2FwKgBOVu5PQWAOMlbAAQmCKTTqVQ694.jpg" class="layui-nav-img">
                     贤心
                 </a>
                 <dl class="layui-nav-child">
@@ -53,9 +54,6 @@
                     <dl class="layui-nav-child">
                         <dd><a href="/brand/brand">添加品牌</a></dd>
                         <dd><a href="/brand/index">品牌列表</a></dd>
-{{--                        <dd><a href="">超链接</a></dd>--}}
-
-                        {{--<dd><a href="">超链接</a></dd>--}}
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -70,6 +68,27 @@
                     <dl class="layui-nav-child">
                         <dd><a href="/cate/create">添加分类</a></dd>
                         <dd><a href="/cate">分类列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">管理员管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/user/create">添加管理员</a></dd>
+                        <dd><a href="/user">管理员列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">菜单管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/menu/create">添加菜单</a></dd>
+                        <dd><a href="/menu">菜单列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">角色管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/role/create">添加角色</a></dd>
+                        <dd><a href="/role">角色列表</a></dd>
                     </dl>
                 </li>
 

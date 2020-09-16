@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8"> 
-	<title>修改商品</title>
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-<a href="{{url('/student/index')}}" type="button" class="btn btn-success">成功按钮</button></a>
+@extends('admin.layout.gong')
+@section('title', '商品添加')
+@section('content')
+<a href="{{url('/student/index')}}" type="button" class="btn btn-success">返回</button></a>
 
 <form action="{{url('student/update/'.$student->id)}}" method="post" class="form-horizontal" role="form">
 	@csrf
@@ -98,5 +91,4 @@
 	</div>
 </form>
 
-</body>
-</html>
+@endsection

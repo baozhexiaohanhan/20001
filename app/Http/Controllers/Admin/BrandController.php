@@ -36,6 +36,7 @@ class BrandController extends Controller
         }
         return view('admin.brand.index',['brand'=>$brand,'query'=>$query]);
     }
+    
     public function uploads(request $request){
         if ($request->hasFile('file') && $request->file('file')->isValid()) {
             $photo = $request->file;
