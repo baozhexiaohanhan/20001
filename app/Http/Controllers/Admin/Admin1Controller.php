@@ -3,39 +3,35 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Model\Menu;
 use Illuminate\Http\Request;
 use App\Model\Admin;
 class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *管理员展示
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $admin_name = request()->admin_name;
-        $where = [];
-        if($admin_name){
-            $where[] =['admin_name','like',"%$admin_name%"]; 
-        }
         $query = request()->all();
-        $admin = Admin::where($where)->orderBy('admin_id','desc')->paginate(2);
+        $admin = new Admin();
+        $admin = Admin::orderby('admin_id','desc')->paginate(3);
         if(request()->ajax()){
-            return view('admin/admin/ajaxpage',['admin'=>$admin,'admin_name'=>$admin_name,'query'=>$query]);
+            return view('admin.admin.ajax',compact('admin','query'));
         }
-
-        return view('admin/admin/index',['admin'=>$admin,'admin_name'=>$admin_name,'query'=>$query]);
+        return view('admin.admin.index',compact('admin','query'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *添加页面
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('admin/admin/create');
+        return view('admin.admin.create');
     }
 
     /**
@@ -46,26 +42,10 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $post = $request->except(['_token','pwd1']);
-        
-        $validatedData = $request->validate([
-            'admin_name'=>'required|unique:admin',
-            'pwd'=>'required',
-            'pwd1'=>'required',
-            'mobile'=>'required',
-        ],[
-            'admin_name.required'=>'姓名不能为空',
-            'admin_name.unique'=>'管理员已存在',
-            'pwd.required'=>'密码不能为空',
-            'pwd1.required'=>'确认密码不能为空',
-            'mobile.required'=>'手机号不能为空',
-        ]);
-       $post['pwd'] = encrypt($post['pwd']);
-        // dd($post);
+        $post = $request->except('_token');
         $res = Admin::create($post);
-        
         if($res){
-            return redirect('/admin/index');
+            return view('admin.admin.index');
         }
     }
 
@@ -93,14 +73,14 @@ class AdminController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *删除
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**
@@ -109,11 +89,8 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($admin_id)
+    public function destroy($id)
     {
-        $res = Admin::destroy($admin_id);
-        if($res){
-            return redirect('/admin/index');
-        }
+        //
     }
 }

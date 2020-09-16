@@ -51,10 +51,10 @@ Route::prefix('student')->group(function() {
 
 //管理员
 
-Route::get('/user/index','Admin\UserController@index');
-Route::get('/user/create','Admin\UserController@create');
-Route::post('/user/store','Admin\UserController@store');
-Route::get('/user/destroy/{id}','Admin\UserController@destroy');
+Route::get('/admin/index','Admin\AdminController@index');
+Route::get('/admin/create','Admin\AdminController@create');
+Route::post('/admin/store','Admin\AdminController@store');
+Route::get('/admin/destroy/{id}','Admin\AdminController@destroy');
 
 Route::prefix('role')->group(function (){
     Route::get('/','Admin\RoleController@index')->name('role');
@@ -68,8 +68,3 @@ Route::prefix('menu')->group(function (){
     Route::post('/store','Admin\MenuController@store');
 });
 
-Route::prefix('admin')->group(function (){
-    Route::get('/','Admin\AdminController@index')->name('index');
-    Route::get('/create','Admin\AdminController@create')->name('admin.create');
-    Route::post('/store','Admin\AdminController@store');
-});

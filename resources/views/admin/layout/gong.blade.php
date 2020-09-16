@@ -19,7 +19,7 @@
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="">控制台</a></li>
             <li class="layui-nav-item"><a href="/brand/index">商品管理</a></li>
-            <li class="layui-nav-item"><a href="/user/index">用户</a></li>
+            <li class="layui-nav-item"><a href="/admin/index">用户</a></li>
             <li class="layui-nav-item"><a href="/reg">注册</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">其它系统</a>
@@ -73,8 +73,8 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">管理员管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/user/create">添加管理员</a></dd>
-                        <dd><a href="/user">管理员列表</a></dd>
+                        <dd><a href="/admin/create">添加管理员</a></dd>
+                        <dd><a href="/admin/index">管理员列表</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
