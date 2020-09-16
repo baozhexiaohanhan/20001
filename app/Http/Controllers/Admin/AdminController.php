@@ -3,39 +3,35 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Model\Menu;
 use Illuminate\Http\Request;
-use App\Model\User;
-class UserController extends Controller
+use App\Model\Admin;
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *管理员展示
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $user_name = request()->user_name;
-        $where = [];
-        if($user_name){
-            $where[] =['user_name','like',"%$user_name%"]; 
-        }
         $query = request()->all();
-        $user = User::where($where)->orderBy('user_id','desc')->paginate(2);
+        $admin = new Admin();
+        $admin = Admin::orderby('admin_id','desc')->paginate(3);
         if(request()->ajax()){
-            return view('admin/user/ajaxpage',['user'=>$user,'user_name'=>$user_name,'query'=>$query]);
+            return view('admin.admin.ajax',compact('admin','query'));
         }
-
-        return view('admin/user/index',['user'=>$user,'user_name'=>$user_name,'query'=>$query]);
+        return view('admin.admin.index',compact('admin','query'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *添加页面
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('admin/user/create');
+        return view('admin.admin.create');
     }
 
     /**
@@ -46,23 +42,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $post = $request->except(['_token','file']);
-        
-        $validatedData = $request->validate([
-            'user_name'=>'required|unique:user',
-            'user_number'=>'required',
-            
-        ],[
-            'user_name.required'=>'姓名不能为空',
-            'user_name.unique'=>'管理员已存在',
-            'user_number.required'=>'手机号不能为空',
-        ]);
-       
-
-        $res = User::insert($post);
-        
+        $post = $request->except('_token');
+        $res = Admin::create($post);
         if($res){
-            return redirect('/user/index');
+            return view('admin.admin.index');
         }
     }
 
@@ -90,14 +73,14 @@ class UserController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *删除
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**
@@ -106,11 +89,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($user_id)
+    public function destroy($id)
     {
-        $res = User::destroy($user_id);
-        if($res){
-            return redirect('/user/index');
-        }
+        //
     }
 }

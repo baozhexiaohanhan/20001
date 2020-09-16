@@ -67,3 +67,9 @@ Route::prefix('menu')->group(function (){
     Route::get('/create','Admin\MenuController@create')->name('menu.create');
     Route::post('/store','Admin\MenuController@store');
 });
+
+Route::prefix('admin')->group(function (){
+    Route::get('/','Admin\AdminController@index')->name('index');
+    Route::get('/create','Admin\AdminController@create')->name('admin.create');
+    Route::post('/store','Admin\AdminController@store');
+});
