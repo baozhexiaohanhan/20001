@@ -70,7 +70,13 @@
                         <dd><a href="/cate">分类列表</a></dd>
                     </dl>
                 </li>
-                
+                <li class="layui-nav-item">
+                    <a href="javascript:;">管理员管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/user/create">添加管理员</a></dd>
+                        <dd><a href="/user">管理员列表</a></dd>
+                    </dl>
+                </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">菜单管理</a>
                     <dl class="layui-nav-child">
