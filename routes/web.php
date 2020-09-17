@@ -84,3 +84,14 @@ Route::prefix('admin')->group(function (){
     Route::post('/store','Admin\AdminController@store');
 });
 });
+//角色
+Route::prefix('role')->middleware('checklogin')->group(function(){
+Route::get('/role','Admin\RouteController@create');
+Route::post('/store','Admin\RouteController@store');
+Route::get('/index','Admin\RouteController@index');
+Route::get('/edit/{id}','Admin\RouteController@edit');
+Route::post('/update/{id}','Admin\RouteController@update');
+Route::get('/destroy/{id?}','Admin\RouteController@destroy');
+Route::get('/change','Admin\RouteController@change');
+
+});
