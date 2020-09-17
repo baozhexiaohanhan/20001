@@ -15,7 +15,7 @@ class LoginController extends Controller
                }
 
                //解密
-               if(($admin->pwd)!==$post['pwd']){
+               if(decrypt($admin->pwd)!==$post['pwd']){
                 // dd(decrypt($admin->pwd));
                 return redirect('/login')->with('msg','密码错误');
                }
@@ -24,11 +24,6 @@ class LoginController extends Controller
 
                return redirect('/brand/index');
         }
-<<<<<<< HEAD
-        session(['user'=>$admin]);
-        return redirect('/brand/index');
-    }
-=======
 
->>>>>>> 1c3626f0097c55acd59b5dd00721bb7d61f8d5ed
+
 }
