@@ -50,7 +50,6 @@ Route::prefix('student')->group(function() {
 });
 
 //管理员
-
 Route::get('/admin/index','Admin\AdminController@index');
 Route::get('/admin/create','Admin\AdminController@create');
 Route::post('/admin/store','Admin\AdminController@store');
