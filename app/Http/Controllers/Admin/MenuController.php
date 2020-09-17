@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Role;
 use Illuminate\Http\Request;
 use App\Model\Menu;
+use Validator;
 class MenuController extends Controller
 {
     /**
@@ -42,9 +43,8 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $post = $request->except('_token');
-        $res = Menu::create($post);
+       $post = $request->except('_token');
+        $res = Menu::insert($post);
         if($res){
             return redirect('/menu');
         }

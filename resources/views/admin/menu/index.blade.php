@@ -49,5 +49,19 @@
             })
             return false;
         });
+
+          //ajax删除
+            $(document).on('click','.btn-warning',function (){
+            var id = $(this).attr('id');
+            var isdel = confirm('确定删除吗?');
+            if(isdel == true){
+                $.get('/menu/destroy/'+id,function(rest){
+                    if(rest.error_no == '1'){
+                        location.reload();
+                    }
+                },'json');
+            }
+
+        });
     </script>
 @endsection

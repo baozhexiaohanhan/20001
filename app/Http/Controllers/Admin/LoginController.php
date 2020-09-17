@@ -11,7 +11,7 @@ class LoginController extends Controller
                
                $admin = Admin::where('admin_name',$post['admin_name'])->first();
                if(!$admin){
-                        return redirect('/login')->with('msg','没有此用户');
+                        return redirect('/login')->with('msg','没有此用户请填写信息');
                }
 
                //解密
