@@ -39,6 +39,5 @@
         </table>
 
     </div>
-@section('title', '角色列表')
-@section('content')
+@endsection
 
