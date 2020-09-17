@@ -10,7 +10,5 @@ class Role extends Model
     protected $table = 'role';
     protected $primaryKey = 'role_id';
     public $timestamps = false;
-
-    //黑名单
     protected $guarded = [];
 }

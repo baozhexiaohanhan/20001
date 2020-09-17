@@ -24,5 +24,11 @@ class LoginController extends Controller
 
                return redirect('/brand/index');
         }
+<<<<<<< HEAD
+        session(['user'=>$admin]);
+        return redirect('/brand/index');
+    }
+=======
 
+>>>>>>> 1c3626f0097c55acd59b5dd00721bb7d61f8d5ed
 }

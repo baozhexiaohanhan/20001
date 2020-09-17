@@ -52,8 +52,7 @@
             </div>
         </div>
     </form>
-    <script src="/layui/layui.js"></script>
-    <script src="/layui/layui.all.js"></script>
+
     <script>
         layui.use('element', function() {
             var element = layui.element;
