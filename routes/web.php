@@ -75,12 +75,14 @@ Route::prefix('menu')->group(function (){
     Route::get('/','Admin\MenuController@index')->name('menu');
     Route::get('/create','Admin\MenuController@create')->name('menu.create');
     Route::post('/store','Admin\MenuController@store');
-});
 
+});
+Route::get('/role/menu/{id}','Admin\RoleController@menu');
 Route::prefix('admin')->group(function (){
     Route::get('/','Admin\AdminController@index')->name('index');
     Route::get('/create','Admin\AdminController@create')->name('admin.create');
     Route::post('/store','Admin\AdminController@store');
+
 });
 });
 //角色
@@ -92,5 +94,5 @@ Route::prefix('admin')->group(function (){
 // Route::post('/update/{id}','Admin\RouteController@update');
 // Route::get('/destroy/{id?}','Admin\RouteController@destroy');
 // Route::get('/change','Admin\RouteController@change');
-// 
+//
 // });

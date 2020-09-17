@@ -5,7 +5,7 @@
 	<center><h2>商品列表</h2></center>
 <a href="{{url('/student/create')}}" type="button" class="btn btn-warning">添加商品</a>
 <div class="table-responsive">
-	<table class="table" > 
+	<table class="table" >
 		<caption></caption>
 		<thead>
 			<tr>
@@ -46,8 +46,9 @@
 				<th>{{$v->s_ff}}</th>
 				<th>{{$v->s_uu}}</th>
 				<th>{{$v->s_yy}}</th>
-				<th><a href="{{url('/student/edit/'.$v->id)}}" type="button" class="btn btn-primary">修改</a>
-				   -<a href="{{url('/student/destroy/'.$v->id)}}" type="button" class="btn btn-danger">删除</a></th>
+				<th><a href="{{url('/student/edit/'.$v->id)}}" type="button" class="btn btn-primary">修改</a>-
+                    <a href="javascript:void(0);" id="{{$v->id}}" type="button" class="btn btn-warning">删除</a></td>
+                </th>
 			</tr>
 			@endforeach
 			<tr><td colspan="13">{{$student->links('vendor.pagination.adminshop')}}</td></tr>
@@ -63,5 +64,16 @@
             })
             return false;
         });
+       $(document).on('click','.btn-warning',function (){
+           var id = $(this).attr('id');
+           var isdel = confirm('确定删除吗?');
+           if(isdel == true){
+               $.get('/student/destroy/'+id,function(rest){
+                   if(rest.error_no == '1'){
+                       location.reload();
+                   }
+               },'json');
+           }
+       });
 </script>
 @endsection

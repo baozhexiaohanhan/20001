@@ -23,7 +23,7 @@
             @foreach ($menu as $v)
                 <tr>
                     <td>{{$v->menu_id}}
-                    <td id="{{$v->menu_id}}"><span class="aww">{{$v->menu_name}}</span></td>
+                    <td id="{{$v->menu_name}}"><span class="oldname menu_name">{{str_repeat('|--',$v->level)}}{{$v->menu_name}}</span></td>
                     <td>{{$v->url}}</td>
                     <td>{{$v->routname}}</td>
                     <td><a href="{{url('/menu/edit/'.$v->menu_id)}}" id="{{$v->menu_id}}" type="button" class="btn btn-success">编辑</a>
