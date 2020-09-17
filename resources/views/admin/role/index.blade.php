@@ -15,6 +15,7 @@
                 <th>角色ID</th>
                 <th>角色名称</th>
                 <th>角色简介</th>
+                <th>添加权限</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -24,6 +25,7 @@
                     <td>{{$v->role_id}}
                     <td id="{{$v->role_id}}"><span class="aww">{{$v->role_name}}</span></td>
                     <td>{{$v->role_desc}}</td>
+                    <th></th>
                     <td><a href="{{url('/role/edit/'.$v->role_id)}}" id="{{$v->role_id}}" type="button" class="btn btn-success">编辑</a>
                         <a href="javascript:void(0);" id="{{$v->role_id}}" type="button" class="btn btn-warning">删除</a></td>
                 </tr>
@@ -39,5 +41,15 @@
         </table>
 
     </div>
+    <script type="text/javascript">
+         $(document).on('click','#layui-laypage-1 a ',function(){
+            var url = $(this).attr('href');
+            $.get(url,function(result){
+                $('tbody').html(result);
+            })
+            return false;
+        });
+
+    </script>
 @endsection
 

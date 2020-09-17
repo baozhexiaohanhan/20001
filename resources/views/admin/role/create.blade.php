@@ -26,6 +26,17 @@
                       placeholder="请输入角色描述"></textarea>
             </div>
         </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">添加权限</label>
+                <div class="col-sm-8">
+                    <select name="parent_id" lay-filter="aihao">
+                        <option value="0">顶级权限</option>
+                        @foreach($menu as $k=>$v)
+                            <option value="{{$v->menu_id}}">{{str_repeat('|--',$v->level)}}{{$v->menu_name}}</option>
+                        @endforeach
+                        </select>
+                </div>
+            </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">添加</button>

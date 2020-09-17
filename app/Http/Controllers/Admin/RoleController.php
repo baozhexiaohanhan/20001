@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Brand;
+use App\Model\Menu;
 use Illuminate\Http\Request;
 use App\Model\Role;
 class RoleController extends Controller
@@ -31,8 +32,24 @@ class RoleController extends Controller
      */
     public function create()
     {
-//        echo 111;
-        return view('admin.role.create');
+        $menu=Menu::get();
+        $menu=$this->level($menu);
+        return view('admin.role.create',['menu'=>$menu]);
+    }
+    //无限极分类
+    public static function level($data,$parent_id=0,$level=0){
+        if(empty($data)){
+            return;
+        }
+        static $array=[];
+        foreach($data as $k=>$v){
+            if($parent_id==$v->parent_id){
+                $v->level=$level;
+                $array[]=$v;
+                self::level($data,$v->menu_id,$level+1);
+            }
+        }
+        return $array;
     }
 
     /**

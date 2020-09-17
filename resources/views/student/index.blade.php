@@ -50,8 +50,18 @@
 				   -<a href="{{url('/student/destroy/'.$v->id)}}" type="button" class="btn btn-danger">删除</a></th>
 			</tr>
 			@endforeach
-			<tr><td colspan="13">{{$student->links()}}</td></tr>
+			<tr><td colspan="13">{{$student->links('vendor.pagination.adminshop')}}</td></tr>
 		</tbody>
 </table>
 </div>
+
+<script type="text/javascript">
+	   $(document).on('click','#layui-laypage-1 a ',function(){
+            var url = $(this).attr('href');
+            $.get(url,function(result){
+                $('tbody').html(result);
+            })
+            return false;
+        });
+</script>
 @endsection

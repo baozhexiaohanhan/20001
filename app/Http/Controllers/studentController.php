@@ -14,12 +14,16 @@ class studentController extends Controller
      */
     public function index()
     {
+
         $pageSize = config('app.pageSize');
       // $brand = DB::table('brand')->get();
       $student = student::orderby('id','desc')->paginate(3);
-      // dd($student);
-      return view('student.index',['student'=>$student]);
-      // dd($student);
+
+      if(request()->ajax()){
+            return view('student.ajax',['student'=>$student]);
+        }
+        return view('student.index',['student'=>$student]);
+
     }
 
     /**
