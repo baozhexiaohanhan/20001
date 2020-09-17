@@ -77,8 +77,6 @@ Route::prefix('menu')->group(function (){
     Route::post('/store','Admin\MenuController@store');
 });
 
-<<<<<<< HEAD
-=======
 Route::prefix('admin')->group(function (){
     Route::get('/','Admin\AdminController@index')->name('index');
     Route::get('/create','Admin\AdminController@create')->name('admin.create');
@@ -96,4 +94,3 @@ Route::get('/destroy/{id?}','Admin\RouteController@destroy');
 Route::get('/change','Admin\RouteController@change');
 
 });
->>>>>>> f2120b9a9249a0c9f869080c3fb6491c9f64a8ed
