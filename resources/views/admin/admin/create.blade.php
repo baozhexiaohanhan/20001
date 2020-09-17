@@ -51,11 +51,19 @@
                        placeholder="请输入手机号">
             </div>
         </div>
-        
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">角色</label>
+            <div class="col-sm-8">
+            @foreach($role as $v)
+            <input type="checkbox" name="role[]" value="{{$v->role_id}}" lay-skin="primary" >{{$v->role_name}}
+            @endforeach
+            </div>
+        </div>
         
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">添加</button>
+                <button type="submit" class="layui-btn">添加</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
     </form>

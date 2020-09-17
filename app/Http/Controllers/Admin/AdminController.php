@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Admin;
+use App\Model\Role;
+use App\Model\Admin_role;
+use App\Http\Requests\StoreAdminPost;
+use DB;
 class AdminController extends Controller
 {
     /**
@@ -35,7 +39,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin/admin/create');
+        $role = Role::all();
+        return view('admin/admin/create',['role'=>$role]);
     }
 
     /**
@@ -46,28 +51,47 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $post = $request->except(['_token','pwd1']);
-        
-        $validatedData = $request->validate([
-            'admin_name'=>'required|unique:admin',
-            'pwd'=>'required',
-            'pwd1'=>'required',
-            'mobile'=>'required',
-        ],[
-            'admin_name.required'=>'姓名不能为空',
-            'admin_name.unique'=>'管理员已存在',
-            'pwd.required'=>'密码不能为空',
-            'pwd1.required'=>'确认密码不能为空',
-            'mobile.required'=>'手机号不能为空',
-        ]);
-       $post['pwd'] = encrypt($post['pwd']);
-        // dd($post);
-        $res = Admin::create($post);
-        
-        if($res){
-            return redirect('/admin/index');
-        }
+        DB::beginTransaction();
+        try{
+
+            $role = $request->role;
+            $post = $request->except(['_token','pwd1','role']);
+            
+            $validatedData = $request->validate([
+                'admin_name'=>'required|unique:admin',
+                'pwd'=>'required',
+                'pwd1'=>'required',
+                'mobile'=>'required',
+            ],[
+                'admin_name.required'=>'姓名不能为空',
+                'admin_name.unique'=>'管理员已存在',
+                'pwd.required'=>'密码不能为空',
+                'pwd1.required'=>'确认密码不能为空',
+                'mobile.required'=>'手机号不能为空',
+            ]);
+        $post['pwd'] = encrypt($post['pwd']);
+            // dd($post);
+            $admin = Admin::create($post);
+            // dd($res);
+            if($admin){
+                // 管理员角色表入值
+                if(count($role)){
+                    foreach($role as $v){
+                        $admin_role[] = [
+                            'admin_id'=>$admin->admin_id,
+                            'role_id'=>$v
+                        ];
+                    }
+                    Admin_role::insert($admin_role);
+                }
+                DB::commit();
+                return redirect('/admin/index');
+            }
+        }catch(Exception $e){
+            DB::rollBack();
+            dump($e->getMessage());
     }
+}
 
     /**
      * Display the specified resource.

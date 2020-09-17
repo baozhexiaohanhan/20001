@@ -34,7 +34,7 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">
                 <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599902556704&di=fa116b4c08cb736842708c803e9b95d0&imgtype=0&src=http%3A%2F%2Fcdn.u2.huluxia.com%2Fg3%2FM02%2F75%2FB4%2FwKgBOVu5PQWAOMlbAAQmCKTTqVQ694.jpg" class="layui-nav-img">
-                    贤心
+                    {{session('admin')->admin_name}}
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
@@ -70,7 +70,6 @@
                         <dd><a href="/cate">分类列表</a></dd>
                     </dl>
                 </li>
-<<<<<<< HEAD
                 <li class="layui-nav-item">
                     <a href="javascript:;">管理员管理</a>
                     <dl class="layui-nav-child">
@@ -88,27 +87,10 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">角色管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/role/create">添加角色</a></dd>
+                        <dd><a href="/role/role">添加角色</a></dd>
                         <dd><a href="/role">角色列表</a></dd>
                     </dl>
                 </li>
-=======
-                  <li class="layui-nav-item">
-                    <a href="javascript:;">角色管理</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="/role/role">添加角色</a></dd>
-                        <dd><a href="/role/index">角色列表</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">权限管理</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="/role/role">添加权限</a></dd>
-                        <dd><a href="/role/index">权限列表</a></dd>
-                    </dl>
-                </li>
-
->>>>>>> exam
 
             </ul>
         </div>
