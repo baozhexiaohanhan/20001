@@ -18,12 +18,9 @@ Route::get('/', function () {
 });
 //品牌管理
 //  后台首页.品牌
-<<<<<<< HEAD
 Route::middleware('checklogin')->group(function(){
 Route::get('/brand/brand','Admin\BrandController@create');
-=======
 Route::get('/brand/brand','Admin\BrandController@create')->middleware('checklogin');
->>>>>>> 1c3626f0097c55acd59b5dd00721bb7d61f8d5ed
 Route::post('/brand/store','Admin\BrandController@store');
 Route::get('/brand/index','Admin\BrandController@index')->middleware('checklogin');
 Route::post('/brand/uploads','Admin\BrandController@uploads');
@@ -32,12 +29,9 @@ Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
 
-<<<<<<< HEAD
 });
 
-=======
 //注册。登录
->>>>>>> 1c3626f0097c55acd59b5dd00721bb7d61f8d5ed
 Route::view('/login','admin.login');
 Route::any('/admin/logindo','Admin\LoginController@logindo');
 Route::view('/reg','admin.reg');
@@ -62,20 +56,15 @@ Route::prefix('student')->middleware('checklogin')->group(function() {
     Route::get('destroy/{id}', 'studentController@destroy');
 });
 
-<<<<<<< HEAD
 
 
 Route::middleware('checklogin')->group(function(){
-=======
 //管理员
 
->>>>>>> 1c3626f0097c55acd59b5dd00721bb7d61f8d5ed
 Route::get('/user/index','Admin\UserController@index');
 Route::get('/user/create','Admin\UserController@create');
 Route::post('/user/store','Admin\UserController@store');
 Route::get('/user/destroy/{id}','Admin\UserController@destroy');
-<<<<<<< HEAD
-=======
 
 Route::prefix('role')->group(function (){
     Route::get('/','Admin\RoleController@index')->name('role');
@@ -93,5 +82,5 @@ Route::prefix('admin')->group(function (){
     Route::get('/','Admin\AdminController@index')->name('index');
     Route::get('/create','Admin\AdminController@create')->name('admin.create');
     Route::post('/store','Admin\AdminController@store');
->>>>>>> 1c3626f0097c55acd59b5dd00721bb7d61f8d5ed
+});
 });
