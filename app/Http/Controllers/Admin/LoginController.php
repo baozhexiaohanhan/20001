@@ -24,9 +24,5 @@ class LoginController extends Controller
 
                return redirect('/brand/index');
         }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> b9ed352f2172e06b16cff34c4bca601debc8c6bd
 }
