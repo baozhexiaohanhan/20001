@@ -3,7 +3,7 @@
 @section('content')
 
 	<center><h2>商品列表</h2></center>
-<a href="{{url('/student/create')}}" type="button" class="btn btn-warning">添加商品</a>
+<a href="{{url('/student/create')}}" type="button" class="btn btn-success">添加商品</a>
 <div class="table-responsive">
 	<table class="table" >
 		<caption></caption>
@@ -43,10 +43,10 @@
 				</th>
 				<th>{{$v->s_oo}}</th>
 				<th>{{$v->s_hh}}</th>
+				<th>{{$v->s_yy}}</th>
 				<th>{{$v->s_ff}}</th>
 				<th>{{$v->s_uu}}</th>
-				<th>{{$v->s_yy}}</th>
-				<th><a href="{{url('/student/edit/'.$v->id)}}" type="button" class="btn btn-primary">修改</a>-
+				<th><a href="{{url('/student/edit/'.$v->id)}}" type="button" class="btn btn-success">修改</a>-
                     <a href="javascript:void(0);" id="{{$v->id}}" type="button" class="btn btn-warning">删除</a></td>
                 </th>
 			</tr>

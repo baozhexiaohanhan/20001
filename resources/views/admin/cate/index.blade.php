@@ -21,10 +21,10 @@
 			<td>{{$v->cate_show}}</td>
 			<td>{{$v->cate_shows}}</td>
 			<td>
-				<a href="{{url('/cate/edit/'.$v->cate_id)}}" class="btn btn-primary">编辑</a>
-				<!-- <a href="{{url('/cate/destroy/'.$v->cate_id)}}" class="btn btn-danger">删除</a> -->
+				<a href="{{url('/cate/edit/'.$v->cate_id)}}" class="btn btn-success">编辑</a>
+				<!-- <a href="{{url('/cate/destroy/'.$v->cate_id)}}" class="btn btn-warning">删除</a> -->
 
-				<a href="javascript:void(0)" onclick="deleteByID({{$v->cate_id}},this)" class="btn btn-danger">删除</a>
+				<a href="javascript:void(0)" onclick="deleteByID({{$v->cate_id}},this)" class="btn btn-warning">删除</a>
 			</td>
 		</tr>
 @endforeach

@@ -18,8 +18,6 @@ Route::get('/', function () {
 });
 //品牌管理
 //  后台首页.品牌
-Route::middleware('checklogin')->group(function(){
-Route::get('/brand/brand','Admin\BrandController@create');
 Route::get('/brand/brand','Admin\BrandController@create')->middleware('checklogin');
 Route::post('/brand/store','Admin\BrandController@store');
 Route::get('/brand/index','Admin\BrandController@index')->middleware('checklogin');
@@ -29,7 +27,7 @@ Route::post('/brand/update/{id}','Admin\BrandController@update');
 Route::get('/brand/destroy/{id?}','Admin\BrandController@destroy');
 Route::get('/brand/change','Admin\BrandController@change');
 
-});
+
 
 //注册。登录
 Route::view('/login','admin.login');
@@ -37,14 +35,13 @@ Route::any('/admin/logindo','Admin\LoginController@logindo');
 Route::view('/reg','admin.reg');
 Route::any('/admin/Doreg','Admin\RegController@Doreg');
 //分类管理
-Route::middleware('checklogin')->group(function(){
+
 Route::get('cate','Admin\CateController@index');//列表展示
 Route::get('/cate/create','Admin\CateController@create');//添加页面
 Route::post('/cate/store','Admin\CateController@store');//执行添加
 Route::get('/cate/edit/{id}','Admin\CateController@edit');//编辑展示页面
 Route::post('/cate/update/{id}','Admin\CateController@update');//执行编辑
 Route::get('/cate/destroy/{id}','Admin\CateController@destroy');//删除
-});
 
 //商品
 Route::prefix('student')->middleware('checklogin')->group(function() {

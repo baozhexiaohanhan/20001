@@ -87,7 +87,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">角色管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/role/role">添加角色</a></dd>
+                        <dd><a href="/role/create">添加角色</a></dd>
                         <dd><a href="/role">角色列表</a></dd>
                     </dl>
                 </li>
