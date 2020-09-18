@@ -23,7 +23,7 @@
             @foreach ($menu as $v)
                 <tr>
                     <td>{{$v->menu_id}}
-                    <td id="{{$v->menu_id}}"><span class="aww">{{$v->menu_name}}</span></td>
+                    <td id="{{$v->menu_name}}"><span class="oldname menu_name">{{str_repeat('|--',$v->level)}}{{$v->menu_name}}</span></td>
                     <td>{{$v->url}}</td>
                     <td>{{$v->routname}}</td>
                     <td><a href="{{url('/menu/edit/'.$v->menu_id)}}" id="{{$v->menu_id}}" type="button" class="btn btn-success">编辑</a>
@@ -48,6 +48,20 @@
                 $('tbody').html(result);
             })
             return false;
+        });
+
+          //ajax删除
+            $(document).on('click','.btn-warning',function (){
+            var id = $(this).attr('id');
+            var isdel = confirm('确定删除吗?');
+            if(isdel == true){
+                $.get('/menu/destroy/'+id,function(rest){
+                    if(rest.error_no == '1'){
+                        location.reload();
+                    }
+                },'json');
+            }
+
         });
     </script>
 @endsection

@@ -21,13 +21,15 @@
                     <label class="beg-login-icon">
                         <i class="layui-icon">&#xe612;</i>
                     </label>
-                    <input type="text" lay-verify="required" name="admin_name" autocomplete="off" placeholder="这里输入账号" class="layui-input" lay-verType="tips">
+                    <input type="text" lay-verify="required" name="admin_name" autocomplete="off" id="admin_name" placeholder="这里输入账号" class="layui-input" lay-verType="tips">
+                    <div><span class="pass1"></span></div>
                 </div>
                 <div class="layui-form-item">
                     <label class="beg-login-icon">
                         <i class="layui-icon">&#xe642;</i>
                     </label>
-                    <input type="password" lay-verify="required" name="pwd" autocomplete="off" placeholder="这里输入密码" class="layui-input" lay-verType="tips">
+                    <input type="password" lay-verify="required" name="pwd" autocomplete="off" id="pwd" placeholder="这里输入密码" class="layui-input" lay-verType="tips">
+                     <div><span class="pass2"></span></div>
                 </div>
                 <div class="layui-form-item">
                     <div class="beg-pull">
@@ -47,5 +49,26 @@
     <script type="text/javascript" src="/admin/js/login.js"></script>
 </body>
 </html>
+<script type="text/javascript">
+    $(document).on('blur','input[name="admin_name"]',function(){
+        var _this = $(this);
+        var admin_name = _this.val();
+        if(admin_name==""){
+            $(".pass1").css('color','red').html("账号不能为空");
+        }else{
+            $(".pass1").css('color','green').html("已填写");   
+        }
+    })
 
-<script type="text/javascript"></script>
+     $(document).on('blur','input[name="pwd"]',function(){
+        var _this = $(this);
+        var pwd = _this.val();
+        if(pwd==""){
+            $(".pass2").css('color','red').html("密码不能为空");
+        }else{
+            $(".pass2").css('color','green').html("已填写");   
+        }
+    })
+
+     
+</script>

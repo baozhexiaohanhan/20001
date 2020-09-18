@@ -14,11 +14,9 @@
 <table class="table">
         <thead>
         <tr>
-            
             <th>管理ID</th>
             <th>管理人姓名</th>
             <th>管理人手机</th>
-           
             <th>操作</th>
         </tr>
         </thead>
@@ -40,17 +38,12 @@
         </th>
       </tr>
    </div>
-
-
        </tbody>
     </table>
 
 </div>
-
-@endsection
-
-
 <script>
+<<<<<<< HEAD
 layui.use(['element', 'form'],function(){
   var element = layui.element;
      form = layui.form;
@@ -58,6 +51,9 @@ layui.use(['element', 'form'],function(){
 });
 
     $(document).on('click','#layui-laypage-1 a ',function(){
+=======
+ $(document).on('click','#layui-laypage-1 a ',function(){
+>>>>>>> b9ed352f2172e06b16cff34c4bca601debc8c6bd
             var url = $(this).attr('href');
             $.get(url,function(result){
                 $('tbody').html(result);
@@ -67,3 +63,4 @@ layui.use(['element', 'form'],function(){
     
 
 </script>
+@endsection

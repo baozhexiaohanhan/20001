@@ -1,23 +1,16 @@
-
-
-<div>
-<tbody>
-            @foreach($user as $v)
+    @foreach($admin as $v)
         <tr>
-            <th>{{$v->user_id}}</th>
-            <th>{{$v->user_name}}</th>
-            <th>{{$v->user_number}}</th>
+            <th>{{$v->admin_id}}</th>
+            <th>{{$v->admin_name}}</th>
+            <th>{{$v->mobile}}</th>
             
-            <th> <a href="javascript:void()" onclick="if(confirm('确认删除此用户')){location.href='{{url('/user/destroy/'.$v->user_id)}}'; }">删除</a></th>
+            <th> <a href="javascript:void()" class="btn btn-warning" onclick="if(confirm('确认删除此用户')){location.href='{{url('/admin/destroy/'.$v->admin_id)}}'; }">删除</a></th>
         </tr>
             @endforeach
             <div>
       <tr>
         <th colspan="8">
-        {{$user->links('vendor.pagination.adminshop')}}
+        {{$admin->links('vendor.pagination.adminshop')}}
         
         </th>
       </tr>
-   </div>
-</tbody>
-</div>

@@ -14,12 +14,16 @@ class studentController extends Controller
      */
     public function index()
     {
+
         $pageSize = config('app.pageSize');
       // $brand = DB::table('brand')->get();
       $student = student::orderby('id','desc')->paginate(3);
-      // dd($student);
-      return view('student.index',['student'=>$student]);
-      // dd($student);
+
+      if(request()->ajax()){
+            return view('student.ajax',['student'=>$student]);
+        }
+        return view('student.index',['student'=>$student]);
+
     }
 
     /**
@@ -60,16 +64,16 @@ class studentController extends Controller
         ]);
 
          $post = $request->except('_token');
-       
-        if ($request->hasFile('s_ss')) { // 
-           
+
+        if ($request->hasFile('s_ss')) { //
+
             $post['s_ss'] = $this->upload('s_ss');
         }
          if($request->hasFile('s_ii')){
             $s_ii = $this->Moreupload('s_ii');
             $post['s_ii'] = implode('|' ,$s_ii);
         }
-    
+
 
       $res = student::create($post);
       if($res){
@@ -119,8 +123,8 @@ public function upload($img)
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
-      
+    {
+
          $student = student::where('id',$id)->first();
         return view('student.edit',['student'=>$student]);
     }
@@ -149,9 +153,14 @@ public function upload($img)
      */
     public function destroy($id)
     {
-         $res = DB::table('student')->where('id',$id)->delete();
+        $res = DB::table('student')->where('id',$id)->delete();
         if($res){
-        return redirect('student/index');
+            if(request()->ajax()){
+                return json_encode(['error_no'=>'1','error_msg'=>'删除成功']);
+            }
+            return redirect('brand/index');
+        }
+
     }
 }
-}
+
