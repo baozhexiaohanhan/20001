@@ -55,8 +55,9 @@ Route::prefix('student')->middleware('checklogin')->group(function() {
 
 
 
-Route::middleware('checklogin')->group(function(){
+Route::middleware('checklogin')->group(function() {
 //管理员
+<<<<<<< HEAD
 Route::get('/admin/index','Admin\AdminController@index');
 Route::get('/admin/create','Admin\AdminController@create');
 Route::post('/admin/store','Admin\AdminController@store');
@@ -80,8 +81,45 @@ Route::prefix('admin')->group(function (){
     Route::get('/','Admin\AdminController@index')->name('index');
     Route::get('/create','Admin\AdminController@create')->name('admin.create');
     Route::post('/store','Admin\AdminController@store');
+=======
+    Route::get('/admin/index', 'Admin\AdminController@index');
+    Route::get('/admin/create', 'Admin\AdminController@create');
+    Route::post('/admin/store', 'Admin\AdminController@store');
+    Route::get('/admin/destroy/{id}', 'Admin\AdminController@destroy');
 
+    Route::prefix('role')->group(function () {
+        Route::get('/', 'Admin\RoleController@index')->name('role');
+        Route::get('/create', 'Admin\RoleController@create')->name('role.create');
+        Route::post('/store', 'Admin\RoleController@store');
+    });
+
+    Route::prefix('menu')->group(function () {
+        Route::get('/', 'Admin\MenuController@index')->name('menu');
+        Route::get('/create', 'Admin\MenuController@create')->name('menu.create');
+        Route::post('/store', 'Admin\MenuController@store');
+
+    });
+    Route::get('/role/menu/{id}', 'Admin\RoleController@menu');
+    Route::prefix('admin')->group(function () {
+        Route::get('/', 'Admin\AdminController@index')->name('index');
+        Route::get('/create', 'Admin\AdminController@create')->name('admin.create');
+        Route::post('/store', 'Admin\AdminController@store');
+>>>>>>> 074ea2194bfaa55d4c90fff1bf1eaca7b1913252
+
+    });
+    Route::prefix('type')->group(function () {
+        Route::get('/', 'Admin\TypeController@index')->name('index');
+        Route::get('/create', 'Admin\TypeController@create')->name('type.create');
+        Route::post('/store', 'Admin\TypeController@store');
+        Route::get('/attr/{id}', 'Admin\TypeController@attr');
+    });
+    Route::prefix('attr')->group(function () {
+        Route::get('/', 'Admin\AttrController@index')->name('index');
+        Route::get('/create/{id}', 'Admin\AttrController@create')->name('attr.create');
+        Route::post('/store', 'Admin\AttrController@store');
+    });
 });
+<<<<<<< HEAD
 Route::get('type/index','Admin\TypeController@index');
 Route::get('type/create','Admin\TypeController@create');
 Route::post('type/store','Admin\TypeController@store');
@@ -98,3 +136,5 @@ Route::post('type/store','Admin\TypeController@store');
 // Route::get('/change','Admin\RouteController@change');
 //
 // });
+=======
+>>>>>>> 074ea2194bfaa55d4c90fff1bf1eaca7b1913252
