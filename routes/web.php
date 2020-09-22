@@ -61,19 +61,20 @@ Route::get('/admin/index','Admin\AdminController@index');
 Route::get('/admin/create','Admin\AdminController@create');
 Route::post('/admin/store','Admin\AdminController@store');
 Route::get('/admin/destroy/{id}','Admin\AdminController@destroy');
-
+//角色
 Route::prefix('role')->group(function (){
     Route::get('/','Admin\RoleController@index')->name('role');
     Route::get('/create','Admin\RoleController@create')->name('role.create');
     Route::post('/store','Admin\RoleController@store');
 });
-
+//权限
 Route::prefix('menu')->group(function (){
     Route::get('/','Admin\MenuController@index')->name('menu');
     Route::get('/create','Admin\MenuController@create')->name('menu.create');
     Route::post('/store','Admin\MenuController@store');
 
 });
+// 角色权限
 Route::get('/role/menu/{id}','Admin\RoleController@menu');
 Route::prefix('admin')->group(function (){
     Route::get('/','Admin\AdminController@index')->name('index');
@@ -81,6 +82,10 @@ Route::prefix('admin')->group(function (){
     Route::post('/store','Admin\AdminController@store');
 
 });
+Route::get('type/index','Admin\TypeController@index');
+Route::get('type/create','Admin\TypeController@create');
+Route::post('type/store','Admin\TypeController@store');
+
 });
 //角色
 // Route::prefix('role')->middleware('checklogin')->group(function(){

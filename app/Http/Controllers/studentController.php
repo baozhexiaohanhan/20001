@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Cate;
+use App\Model\Brand;
 use DB;
 use App\student;
 class studentController extends Controller
@@ -14,7 +16,7 @@ class studentController extends Controller
      */
     public function index()
     {
-
+    
         $pageSize = config('app.pageSize');
       // $brand = DB::table('brand')->get();
       $student = student::orderby('id','desc')->paginate(3);
@@ -31,10 +33,15 @@ class studentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        return view('student.create');
+        $data=Cate::get();
+        $cate = $this->level($data);
+        $brand=Brand::get();
+        return view('student.create',['cate'=>$cate,'brand'=>$brand]);
     }
+  
 
     /**
      * Store a newly created resource in storage.
@@ -42,36 +49,48 @@ class studentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public  function level($data,$parent_id=0,$level=1){
+        static $array=[];
+        foreach($data as $k=>$v){
+            if($v['parent_id']==$parent_id){
+                $v['level']=$level;
+                $array[]=$v;
+             $this->level($data,$v['cate_id'],$v['level']+1);
+            }
+        }
+        return $array;
+    }
     public function store(Request $request)
     {
 
          $validatedData = $request->validate([
-            's_pp' => 'required|unique:student|max:20',
-            's_cc' => 'required',
+            's_name' => 'required|unique:student|max:20',
+            's_xinghao' => 'required',
             's_bb'=> 'required',
-            's_oo'=> 'required',
-            's_hh'=> 'required',
+            's_price'=> 'required',
+            's_kucun'=> 'required',
         ],[
-            's_pp.required'=>'商品名称必填！',
-            's_pp.unique'=>'商品名称已经存在！',
-            's_pp.max'=>'商品名称最多不能大于10位！',
-            's_cc.required'=>'商品货号不能为空！',
-            's_cc.unique'=>'定单号不能重复！',
+            's_name.required'=>'商品名称必填！',
+            's_name.unique'=>'商品名称已经存在！',
+            's_name.max'=>'商品名称最多不能大于10位！',
+            's_xinghao.required'=>'商品货号不能为空！',
+            's_xinghao.unique'=>'定单号不能重复！',
             's_bb.required'=>'商品品牌不能为空！',
-            's_oo.required'=>'价格不能为空！',
-            's_hh.required'=>'库存不能为空！',
+            's_price.required'=>'价格不能为空！',
+            's_kucun.required'=>'库存不能为空！',
 
         ]);
 
          $post = $request->except('_token');
 
-        if ($request->hasFile('s_ss')) { //
+        if ($request->hasFile('s_img')) { //
 
-            $post['s_ss'] = $this->upload('s_ss');
+            $post['s_img'] = $this->upload('s_img');
         }
-         if($request->hasFile('s_ii')){
-            $s_ii = $this->Moreupload('s_ii');
-            $post['s_ii'] = implode('|' ,$s_ii);
+         if($request->hasFile('s_imgs')){
+            $s_imgs = $this->Moreupload('s_imgs');
+            $post['s_imgs'] = implode('|' ,$s_imgs);
         }
 
 
@@ -124,9 +143,10 @@ public function upload($img)
      */
     public function edit($id)
     {
-
+        $brand=Brand::get();
+        $cate=Cate::get();
          $student = student::where('id',$id)->first();
-        return view('student.edit',['student'=>$student]);
+        return view('student.edit',['student'=>$student,'brand'=>$brand,'cate'=>$cate]);
     }
 
     /**
@@ -163,4 +183,3 @@ public function upload($img)
 
     }
 }
-

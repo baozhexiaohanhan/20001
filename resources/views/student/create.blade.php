@@ -9,55 +9,51 @@
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">商品名称</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="firstname" name="s_pp" 
+			<input type="text" class="form-control" id="firstname" name="s_name" 
 				   placeholder="商品名称">
-				   <b style="color:red">{{$errors->first('s_pp')}}</b>
+				   <b style="color:red">{{$errors->first('s_name')}}</b>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">商品型号</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="firstname" name="s_cc" 
+			<input type="text" class="form-control" id="firstname" name="s_xinghao" 
 				   placeholder="商品货号">
-				   <b style="color:red">{{$errors->first('s_cc')}}</b>
+				   <b style="color:red">{{$errors->first('s_xinghao')}}</b>
 
 		</div>
 	</div>
-	<div class="form-group">
-	<label for="firstname" class="col-sm-2 control-label">商品分类</label>
-		<select name="s_aa">
-		<option value="0" checked>请选择</option>
-		<option value="玫瑰花">玫瑰花</option>
-		<option value="牡丹花">牡丹花</option>
-		<option value="白兰花">白兰花</option>
-		<option value="紫罗兰">紫罗兰</option>
-</select>
-	</div>
 
-	<div class="form-group">
-	<label for="firstname" class="col-sm-2 control-label">商品品牌</label>
-		<select name="s_bb">
-		<option value="0" checked>请选择</option>
-		<option value="玫瑰花">宝马</option>
-		<option value="牡丹花">香奈儿</option>
-		<option value="白兰花">保时捷</option>
-		<option value="紫罗兰">格力</option>
-</select>
-	</div>
+    <div class="form-group">
+    <label class="col-sm-2 control-label">商品分类</label>
+    <div class="col-sm-10">
+      <select name="cate_id" lay-filter="aihao">
+        <option value="">请选择分类</option>
+        @foreach($cate as $v)
+        <option value="{{$v->cate_id}}">{{str_repeat('-|',$v->level)}}{{$v->cate_name}}</option>
+        @endforeach
+      </select>
+      <b style="color:red">{{$errors->first('cate_id')}}</b>
+    </div>
+  </div>
 
-	<!-- <div class="form-group">
-	<label for="firstname" class="col-sm-2 control-label">商品品牌</label>
-	<div class="col-sm-10">
-		<input type="text" class="form-control" id="firstname"  name="s_bb" 
-			   placeholder="商品品牌">
-			   <b style="color:red">{{$errors->first('s_bb')}}</b>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">商品品牌</label>
+    <div class="col-sm-10">
+      <select name="brand_id" lay-filter="aihao">
+        <option value="">请选择品牌</option>
+        @foreach($brand as $v)
+        <option value="{{$v->brand_id}}">{{$v->brand_name}}</option>
+        @endforeach
+      </select>
+      <b style="color:red">{{$errors->first('brand_id')}}</b>
+    </div>
+  </div>
 
-		</div>
-	</div> -->
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">商品图片</label>
 		<div class="col-sm-10">
-			<input type="file" class="form-control" id="firstname"  name="s_ss" 
+			<input type="file" class="form-control" id="firstname"  name="s_img" 
 				   placeholder="商品主图">
 				  
 
@@ -66,7 +62,7 @@
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">商品相册</label>
 		<div class="col-sm-10">
-			<input type="file" class="form-control" id="firstname"  name="s_ii[]" multiple="multiple"  
+			<input type="file" class="form-control" id="firstname"  name="s_imgs[]" multiple="multiple"  
 				   placeholder="商品相册">
 
 		</div>
@@ -74,41 +70,41 @@
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">商品价格</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="firstname"  name="s_oo" 
+			<input type="text" class="form-control" id="firstname"  name="s_price" 
 				   placeholder="价格">
-				   <b style="color:red">{{$errors->first('s_oo')}}</b>
+				   <b style="color:red">{{$errors->first('s_price')}}</b>
 
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">商品库存</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="firstname"  name="s_hh" 
+			<input type="text" class="form-control" id="firstname"  name="s_kucun" 
 				   placeholder="库存">
-				   <b style="color:red">{{$errors->first('s_hh')}}</b>
+				   <b style="color:red">{{$errors->first('s_kucun')}}</b>
 
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">是否显示</label>
 		<div class="col-sm-10">
-			<input type="radio"  id="firstname"  name="s_yy" value="是">是
-			<input type="radio"  id="firstname"  name="s_yy"value="否">否
+			<input type="radio"  id="firstname"  name="is_zhanshi" value="是" checked>是
+			<input type="radio"  id="firstname"  name="is_zhanshi"value="否">否
 
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">是否新品</label>
 		<div class="col-sm-10">
-			<input type="radio"  id="firstname"  name="s_ff"value="是">是
-			<input type="radio"  id="firstname"  name="s_ff"value="否">否
+			<input type="radio"  id="firstname"  name="is_new"value="是" checked>是
+			<input type="radio"  id="firstname"  name="is_new"value="否">否
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">是否精品</label>
 		<div class="col-sm-10">
-			<input type="radio"  id="firstname"  name="s_uu" value="是">是
-			<input type="radio"  id="firstname"  name="s_uu"value="否">否
+			<input type="radio"  id="firstname"  name="is_jingpin" value="是" checked>是
+			<input type="radio"  id="firstname"  name="is_jingpin"value="否">否
 		</div>
 	</div>
 	<div class="form-group">
