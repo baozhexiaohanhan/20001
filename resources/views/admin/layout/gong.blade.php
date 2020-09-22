@@ -91,7 +91,13 @@
                         <dd><a href="/role">角色列表</a></dd>
                     </dl>
                 </li>
-
+                <li class="layui-nav-item">
+                    <a href="javascript:;">属性管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/type/create">添加属性</a></dd>
+                        <dd><a href="/type">属性列表</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>
