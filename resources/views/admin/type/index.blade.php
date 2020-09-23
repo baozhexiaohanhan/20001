@@ -2,7 +2,7 @@
 @section('title', '商品品牌列表')
 @section('content')
 
-    <center><h1>属性列表<a style="float:right" href="{{url('/brand/brand')}}" type="button" class="btn btn-info">添加</a></h1></center><hr/>
+    <center><h1>属性列表<a style="float:right" href="{{url('/type/create')}}" type="button" class="btn btn-info">添加</a></h1></center><hr/>
 <div class="table-responsive">
     <form>
         <input type="text" name="brand_name"  placeholder="请输入品牌关键字" value="{{$query['brand_name']??''}}">
@@ -23,7 +23,7 @@
                 <td>{{$v->cat_id}}</td>
                 <td>{{$v->cat_name}}</td>
                 <td>
-                    <a href="{{url('/attr/create/'.$v->cat_id)}}" id="{{$v->cat_id}}" type="button" >添加属性</a>
+                    <a href="{{url('/attr/create/'.$v->cat_id)}}" id="{{$v->cat_id}}" type="button" class="layui-btn layui-btn-normal">添加属性</a>
                     <a href="{{url('/type/edit/'.$v->cat_id)}}" id="{{$v->cat_id}}" type="button" class="btn btn-success">编辑</a>
                 <a href="javascript:void(0);" id="{{$v->cat_id}}" type="button" class="btn btn-warning">删除</a></td>
             </tr>

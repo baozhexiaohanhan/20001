@@ -25,13 +25,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($student as $v)
+			@foreach($data as $v)
 		<tr>
 				<th>{{$v->id}}</th>
 				<th>{{$v->s_name}}</th>
 				<th>{{$v->s_xinghao}}</th>
-				<th>{{$v->cate_id}}</th>
-				<th>{{$v->brand_id}}</th>
+				<th>{{$v->cate_name}}</th>
+				<th>{{$v->brand_name}}</th>
 				<th><img src="{{env('IMG_URL')}}{{$v->s_img}}" width="40" height="40"></th>
 				<th>
 					@if($v->s_imgs)
@@ -51,7 +51,7 @@
                 </th>
 			</tr>
 			@endforeach
-			<tr><td colspan="13">{{$student->links('vendor.pagination.adminshop')}}</td></tr>
+		
 		</tbody>
 </table>
 </div>

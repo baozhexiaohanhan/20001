@@ -16,15 +16,18 @@ class studentController extends Controller
      */
     public function index()
     {
+        echo 123;
     
         $pageSize = config('app.pageSize');
-      // $brand = DB::table('brand')->get();
-      $student = student::orderby('id','desc')->paginate(3);
-
+      //$student = student::orderby('id','desc')->paginate(3);
+    $data = student::leftjoin('brand','brand.brand_id','=','student.brand_id')
+    ->leftjoin  ('category','category.cate_id','=','student.cate_id')
+    ->get();
+    //dd($data);
       if(request()->ajax()){
-            return view('student.ajax',['student'=>$student]);
+            return view('student.ajax',['data'=>$data]);
         }
-        return view('student.index',['student'=>$student]);
+        return view('student.index',['data'=>$data]);
 
     }
 
@@ -63,8 +66,8 @@ class studentController extends Controller
     }
     public function store(Request $request)
     {
-
-         $validatedData = $request->validate([
+        // dd(1);
+        $validatedData = $request->validate([
             's_name' => 'required|unique:student|max:20',
             's_xinghao' => 'required',
             's_price'=> 'required',
@@ -77,7 +80,6 @@ class studentController extends Controller
             's_xinghao.unique'=>'定单号不能重复！',
             's_price.required'=>'价格不能为空！',
             's_kucun.required'=>'库存不能为空！',
-
         ]);
 
          $post = $request->except('_token');
