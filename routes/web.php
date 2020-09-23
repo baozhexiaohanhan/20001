@@ -51,6 +51,9 @@ Route::prefix('student')->middleware('checklogin')->group(function() {
     Route::get('edit/{id}', 'studentController@edit');
     Route::post('update/{id}', 'studentController@update');
     Route::get('destroy/{id}', 'studentController@destroy');
+    Route::post('upload', 'studentController@upload');
+
+    
 });
 
 
