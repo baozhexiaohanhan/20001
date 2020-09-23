@@ -3,8 +3,6 @@
 @section('content')
 	<center><h2>添加商品</h2></center>
 <a href="{{url('/student/index')}}" type="button" class="btn btn-success">商品列表</a>
-
-
 <form action="{{url('student/store')}}" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
 <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
   <ul class="layui-tab-title">

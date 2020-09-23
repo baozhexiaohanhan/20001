@@ -46,7 +46,7 @@ Route::get('/cate/destroy/{id}','Admin\CateController@destroy');//删除
 //商品
 Route::prefix('student')->middleware('checklogin')->group(function() {
     Route::get('create', 'studentController@create');
-    Route::post('store', 'studentController@store');
+    Route::any('store', 'studentController@store');
     Route::get('index', 'studentController@index');
     Route::get('edit/{id}', 'studentController@edit');
     Route::post('update/{id}', 'studentController@update');
@@ -55,7 +55,6 @@ Route::prefix('student')->middleware('checklogin')->group(function() {
 
 
 
-Route::middleware('checklogin')->group(function() {
 //管理员
     Route::get('/admin/index', 'Admin\AdminController@index');
     Route::get('/admin/create', 'Admin\AdminController@create');
@@ -92,4 +91,3 @@ Route::middleware('checklogin')->group(function() {
         Route::get('/create/{id}', 'Admin\AttrController@create')->name('attr.create');
         Route::post('/store', 'Admin\AttrController@store');
     });
-});
