@@ -94,3 +94,12 @@ Route::prefix('student')->middleware('checklogin')->group(function() {
         Route::get('/create/{id}', 'Admin\AttrController@create')->name('attr.create');
         Route::post('/store', 'Admin\AttrController@store');
     });
+<<<<<<< HEAD
+    Route::prefix('goods')->group(function () {
+        Route::get('/', 'Admin\GoodsControlle@index')->name('index');
+        Route::get('/create/', 'Admin\GoodsControlle@create')->name('goods.create');
+        Route::post('/store', 'Admin\GoodsControlle@store');
+    });
+});
+=======
+>>>>>>> fd2772834aacb860ffa6967a8bf8fe714c669239
