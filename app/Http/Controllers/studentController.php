@@ -67,7 +67,6 @@ class studentController extends Controller
          $validatedData = $request->validate([
             's_name' => 'required|unique:student|max:20',
             's_xinghao' => 'required',
-            's_bb'=> 'required',
             's_price'=> 'required',
             's_kucun'=> 'required',
         ],[
@@ -76,7 +75,6 @@ class studentController extends Controller
             's_name.max'=>'商品名称最多不能大于10位！',
             's_xinghao.required'=>'商品货号不能为空！',
             's_xinghao.unique'=>'定单号不能重复！',
-            's_bb.required'=>'商品品牌不能为空！',
             's_price.required'=>'价格不能为空！',
             's_kucun.required'=>'库存不能为空！',
 

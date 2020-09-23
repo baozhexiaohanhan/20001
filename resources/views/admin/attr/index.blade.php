@@ -47,8 +47,8 @@
                 <td style="width:20%">{{$v->attr_values}}</td>
                 <td>
                     {{--            <a href="{{url('/role/destroy/'.$v->attr_id)}}">--}}
-                    <button type="button" class="btn btn-default">编辑<tton>
-                            <button type="button" class="btn btn-danger" attr_id="{{$v->attr_id}}">删除<tton>
+                    <button type="button" class="btn btn-default">编辑<button>
+                            <button type="button" class="btn btn-danger" attr_id="{{$v->attr_id}}">删除<button>
                 </td>
             </tr>
 
