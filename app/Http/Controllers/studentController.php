@@ -16,7 +16,6 @@ class studentController extends Controller
      */
     public function index()
     {
-    
         $pageSize = config('app.pageSize');
       //$student = student::orderby('id','desc')->paginate(3);
     $data = student::leftjoin('brand','brand.brand_id','=','student.brand_id')
@@ -38,6 +37,8 @@ class studentController extends Controller
 
     public function create()
     {
+    echo 123;
+
         $data=Cate::get();
         $cate = $this->level($data);
         $brand=Brand::get();
