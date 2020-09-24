@@ -51,6 +51,9 @@ Route::prefix('student')->middleware('checklogin')->group(function() {
     Route::get('edit/{id}', 'studentController@edit');
     Route::post('update/{id}', 'studentController@update');
     Route::get('destroy/{id}', 'studentController@destroy');
+    Route::post('upload', 'studentController@upload');
+
+    
 });
 
 
@@ -96,4 +99,7 @@ Route::prefix('student')->middleware('checklogin')->group(function() {
         Route::get('/create/', 'Admin\GoodsControlle@create')->name('goods.create');
         Route::post('/store', 'Admin\GoodsControlle@store');
     });
+<<<<<<< HEAD
 
+=======
+>>>>>>> e63938f8bc89aebd32b2a85a7e199b6f1a413f4e

@@ -98,31 +98,45 @@ class studentController extends Controller
         return redirect('student/index');
       }
 }
-public function upload($img)
-     {
-        //判断上传中是否有错误
-        if (request()->file($img)->isValid()){
-        //接受文件
-        $file = request()->$img;
-        $store_result = $file->store('/upload');
-        return $store_result;
-        }
-        exit('未获取到上传文件或上传过程出错');
-    }
-    public function Moreupload($img){
-        //接受文件
-        $file = request()->$img;
-        foreach($file as $k=>$v){
-            //判断上传是否有错
-            if($v->isValid()){
-                $store_result[$k] = $v->store('/upload');
+// public function upload($img)
+//      {
+//         //判断上传中是否有错误
+//         if (request()->file($img)->isValid()){
+//         //接受文件
+//         $file = request()->$img;
+//         $store_result = $file->store('/upload');
+//         return $store_result;
+//         }
+//         exit('未获取到上传文件或上传过程出错');
+//     }
 
-            }else{
-                $store_result[$v] = '为获取上传文件';
-            }
-        }
-        return $store_result;
-    }
+public function upload(Request $request){
+    $data = $request->file;
+     if ($request->hasFile('file') && $request->file('file')->isValid()) {
+      $photo = request()->file;
+      $store_result = $photo->store('/upload');
+      $data='/'.$store_result;
+   
+       //dd($data);
+       return json_encode(['code'=>0,'msg'=>'上传成功','data'=>['src'=>$data,'title'=>'']]);
+ }
+       return json_encode(['code'=>1,'msg'=>'上传失败']);
+}
+
+    // public function Moreupload($img){
+    //     //接受文件
+    //     $file = request()->$img;
+    //     foreach($file as $k=>$v){
+    //         //判断上传是否有错
+    //         if($v->isValid()){
+    //             $store_result[$k] = $v->store('/upload');
+
+    //         }else{
+    //             $store_result[$v] = '为获取上传文件';
+    //         }
+    //     }
+    //     return $store_result;
+    // }
     /**
      * Display the specified resource.
      *
