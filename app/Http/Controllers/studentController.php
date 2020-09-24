@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Cate;
 use App\Model\Brand;
+use App\Model\Type;
 use DB;
 use App\student;
 class studentController extends Controller
@@ -29,6 +30,8 @@ class studentController extends Controller
 
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,7 +44,8 @@ class studentController extends Controller
         $data=Cate::get();
         $cate = $this->level($data);
         $brand=Brand::get();
-        return view('student.create',['cate'=>$cate,'brand'=>$brand]);
+        $type = Type::get();
+        return view('student.create',['cate'=>$cate,'brand'=>$brand,'type'=>$type]);
     }
   
 

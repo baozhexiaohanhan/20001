@@ -86,9 +86,8 @@
         }
 
     });
-    $(document).on('click','.inputtype:gt(1)',function(){
+    $(document).on('click','.inputtype:gt(0)',function(){
         var type_id = $(this).val();
-
         if(type_id == 1){
             $('textarea').removeAttr('disabled');
         }else{
