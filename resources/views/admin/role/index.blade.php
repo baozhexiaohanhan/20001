@@ -41,7 +41,6 @@
         </table>
 
     </div>
-@endsection
 
     <script type="text/javascript">
          $(document).on('click','#layui-laypage-1 a ',function(){
@@ -51,5 +50,18 @@
             })
             return false;
         });
+           $(document).on('click','.btn-warning',function (){
+            var id = $(this).attr('id');
+            var isdel = confirm('确定删除吗?');
+            if(isdel == true){
+                $.get('/brand/destroy/'+id,function(rest){
+                    if(rest.error_no == '1'){
+                        location.reload();
+                    }
+                },'json');
+            }
+
+        });
 
     </script>
+@endsection

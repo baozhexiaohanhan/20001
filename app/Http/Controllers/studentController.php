@@ -16,7 +16,6 @@ class studentController extends Controller
      */
     public function index()
     {
-        echo 123;
     
         $pageSize = config('app.pageSize');
       //$student = student::orderby('id','desc')->paginate(3);
@@ -183,3 +182,4 @@ public function upload($img)
 
     }
 }
+
