@@ -99,3 +99,4 @@ Route::prefix('student')->middleware('checklogin')->group(function() {
         Route::get('/create/', 'Admin\GoodsControlle@create')->name('goods.create');
         Route::post('/store', 'Admin\GoodsControlle@store');
     });
+
