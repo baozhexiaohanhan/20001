@@ -37,7 +37,6 @@ class studentController extends Controller
 
     public function create()
     {
-    echo 123;
 
         $data=Cate::get();
         $cate = $this->level($data);
