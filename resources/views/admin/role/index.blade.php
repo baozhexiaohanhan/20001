@@ -1,5 +1,9 @@
 @extends('admin.layout.gong')
+<<<<<<< HEAD
 @section('title', '商品添加')
+=======
+@section('title', '角色列表')
+>>>>>>> zxp
 @section('content')
     <center><h1>角色列表<a style="float:right" href="{{url('/role/create')}}" type="button" class="btn btn-info">添加</a></h1></center><hr/>
     <div class="table-responsive">
