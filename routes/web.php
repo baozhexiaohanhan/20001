@@ -44,14 +44,14 @@ Route::post('/cate/update/{id}','Admin\CateController@update');//执行编辑
 Route::get('/cate/destroy/{id}','Admin\CateController@destroy');//删除
 
 //商品
-Route::prefix('student')->middleware('checklogin')->group(function() {
-    Route::get('create', 'studentController@create');
-    Route::any('store', 'studentController@store');
-    Route::get('index', 'studentController@index');
-    Route::get('edit/{id}', 'studentController@edit');
-    Route::post('update/{id}', 'studentController@update');
-    Route::get('destroy/{id}', 'studentController@destroy');
-    Route::post('upload', 'studentController@upload');
+Route::prefix('goods')->middleware('checklogin')->group(function() {
+    Route::get('create', 'GoodsController@create');
+    Route::any('store', 'GoodsController@store');
+    Route::get('index', 'GoodsController@index');
+    Route::get('edit/{goods_id}', 'GoodsController@edit');
+    Route::post('update/{goods_id}', 'GoodsController@update');
+    Route::get('destroy/{goods_id}', 'GoodsController@destroy');
+    Route::post('upload', 'GoodsController@upload');
 
     
 });
@@ -96,9 +96,3 @@ Route::prefix('student')->middleware('checklogin')->group(function() {
         Route::get('/create/{id}', 'Admin\AttrController@create')->name('attr.create');
         Route::post('/store', 'Admin\AttrController@store');
     });
-    Route::prefix('goods')->group(function () {
-        Route::get('/', 'Admin\GoodsControlle@index')->name('index');
-        Route::get('/create/', 'Admin\GoodsControlle@create')->name('goods.create');
-        Route::post('/store', 'Admin\GoodsControlle@store');
-    });
-

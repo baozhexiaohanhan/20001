@@ -3,7 +3,7 @@
 @section('content')
 
 	<center><h2>商品列表</h2></center>
-<a href="{{url('/student/create')}}" type="button" class="btn btn-success">添加商品</a>
+<a href="{{url('/goods/create')}}" type="button" class="btn btn-success">添加商品</a>
 <div class="table-responsive">
 	<table class="table" >
 		<caption></caption>
@@ -27,27 +27,27 @@
 		<tbody>
 			@foreach($data as $v)
 		<tr>
-				<th>{{$v->id}}</th>
-				<th>{{$v->s_name}}</th>
-				<th>{{$v->s_xinghao}}</th>
+				<th>{{$v->goods_id}}</th>
+				<th>{{$v->goods_name}}</th>
+				<th>{{$v->goods_xinghao}}</th>
 				<th>{{$v->cate_name}}</th>
 				<th>{{$v->brand_name}}</th>
-				<th><img src="{{env('IMG_URL')}}{{$v->s_img}}" width="40" height="40"></th>
+				<th><img src="{{env('IMG_URL')}}{{$v->goods_img}}" width="40" height="40"></th>
 				<th>
-					@if($v->s_imgs)
-					@php $s_imgs= explode('|',$v->s_imgs); @endphp
-					@foreach ($s_imgs as $vv)
+					@if($v->goods_imgs)
+					@php $goods_imgs= explode('|',$v->goods_imgs); @endphp
+					@foreach ($goods_imgs as $vv)
 					<img src="{{env('IMG_URL')}}{{$vv}}" width="40" height="40">
 					@endforeach
 					@endif
 				</th>
-				<th>{{$v->s_price}}</th>
-				<th>{{$v->s_kucun}}</th>
+				<th>{{$v->goods_price}}</th>
+				<th>{{$v->goods_kucun}}</th>
 				<th>{{$v->is_zhanshi}}</th>
 				<th>{{$v->is_new}}</th>
 				<th>{{$v->is_jingpin}}</th>
-				<th><a href="{{url('/student/edit/'.$v->id)}}" type="button" class="btn btn-success">修改</a>-
-                    <a href="javascript:void(0);" id="{{$v->id}}" type="button" class="btn btn-warning">删除</a></td>
+				<th><a href="{{url('/goods/edit/'.$v->goods_id)}}" type="button" class="btn btn-success">修改</a>-
+                    <a href="javascript:void(0);" goods_id="{{$v->goods_id}}" type="button" class="btn btn-warning">删除</a></td>
                 </th>
 			</tr>
 			@endforeach
@@ -65,10 +65,10 @@
             return false;
         });
        $(document).on('click','.btn-warning',function (){
-           var id = $(this).attr('id');
+           var goods_id = $(this).attr('goods_id');
            var isdel = confirm('确定删除吗?');
            if(isdel == true){
-               $.get('/student/destroy/'+id,function(rest){
+               $.get('/goods/destroy/'+goods_id,function(rest){
                    if(rest.error_no == '1'){
                        location.reload();
                    }
