@@ -61,8 +61,8 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">商品管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/student/create">添加商品</a></dd>
-                        <dd><a href="/student/index">商品列表</a></dd>
+                        <dd><a href="/goods/create">添加商品</a></dd>
+                        <dd><a href="/goods/index">商品列表</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">

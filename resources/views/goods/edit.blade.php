@@ -1,25 +1,25 @@
 @extends('admin.layout.gong')
 @section('title', '商品添加')
 @section('content')
-<a href="{{url('/student/index')}}" type="button" class="btn btn-success">返回</button></a>
+<a href="{{url('/goods/index')}}" type="button" class="btn btn-success">返回</button></a>
 
-<form action="{{url('student/update/'.$student->id)}}" method="post" class="form-horizontal" role="form">
+<form action="{{url('goods/update/'.$goods->goods_id)}}" method="post" class="form-horizontal" role="form">
 	@csrf
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">商品名称</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="firstname" name="s_name" value="{{$student->s_name}}"
+			<input type="text" class="form-control" id="firstname" name="goods_name" value="{{$goods->goods_name}}"
 				   placeholder="商品名称">
-				   <b style="color:red">{{$errors->first('s_name')}}</b>
+				   <b style="color:red">{{$errors->first('goods_name')}}</b>
 
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">商品货号</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="firstname" name="s_xinghao" value="{{$student->s_xinghao}}"
+			<input type="text" class="form-control" id="firstname" name="goods_xinghao" value="{{$goods->goods_xinghao}}"
 				   placeholder="商品货号">
-				   <b style="color:red">{{$errors->first('s_xinghao')}}</b>
+				   <b style="color:red">{{$errors->first('goods_xinghao')}}</b>
 
 		</div>
 	</div>
@@ -53,18 +53,18 @@
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">价格</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="firstname"  name="s_price" value="{{$student->s_price}}"
+			<input type="text" class="form-control" id="firstname"  name="goods_price" value="{{$goods->goods_price}}"
 				   placeholder="价格">
-				   <b style="color:red">{{$errors->first('s_price')}}</b>
+				   <b style="color:red">{{$errors->first('goods_price')}}</b>
 
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">库存</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="firstname"  name="s_kucun" value="{{$student->s_kucun}}"
+			<input type="text" class="form-control" id="firstname"  name="goods_kucun" value="{{$goods->goods_kucun}}"
 				   placeholder="库存">
-				   <b style="color:red">{{$errors->first('s_kucun')}}</b>
+				   <b style="color:red">{{$errors->first('goods_kucun')}}</b>
 
 		</div>
 	</div>
