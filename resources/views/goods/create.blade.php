@@ -204,10 +204,13 @@ layui.use(['element','layedit'], function(){
   	}
 	});
   layedit.build('demo',{
-  height: 300 //设置编辑器高度
+  height: 300
+   //设置编辑器高度
 	}); //建立编辑器
 });
 </script>
 
 
 @endsection
+
+

@@ -94,6 +94,3 @@ Route::prefix('goods')->middleware('checklogin')->group(function() {
         Route::get('/create/{id}', 'Admin\AttrController@create')->name('attr.create');
         Route::post('/store', 'Admin\AttrController@store');
     });
-
-
-    Route::get('abc', 'GoodsController@abc');
