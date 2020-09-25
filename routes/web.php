@@ -52,7 +52,7 @@ Route::prefix('goods')->middleware('checklogin')->group(function() {
     Route::post('update/{goods_id}', 'GoodsController@update');
     Route::get('destroy/{goods_id}', 'GoodsController@destroy');
     Route::post('upload', 'GoodsController@upload');
-
+    Route::get('item', 'GoodsController@item');
     
 });
 
