@@ -95,7 +95,7 @@ class GoodsController extends Controller
 
 
       $res = Goods::create($post);
-      dd($res);
+      // dd($res);
 
       if($res){
         return redirect('goods/index');
@@ -197,5 +197,9 @@ public function upload($img)
             return redirect('brand/index');
         }
 
+    }
+
+    public function item(){
+         return view('goods.item');
     }
 }

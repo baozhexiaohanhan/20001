@@ -94,6 +94,15 @@ class TypeController extends Controller
     public function destroy($id)
     {
         //
+        //
+    $res = Type::where('cat_id',$id)->delete();
+        if($res){
+            if(request()->ajax()){
+                return json_encode(['error_no'=>'1','error_msg'=>'删除成功']);
+            }
+            return redirect('/type');
+        }
+    
     }
 
 }

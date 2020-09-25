@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\Model\Brand;
 use App\Model\Menu;
@@ -110,6 +109,12 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $res = Role::where('role_id',$id)->delete();
+        if($res){
+            if(request()->ajax()){
+                return json_encode(['error_no'=>'1','error_msg'=>'删除成功']);
+            }
+            return redirect('/role');
+        }
     }
 }

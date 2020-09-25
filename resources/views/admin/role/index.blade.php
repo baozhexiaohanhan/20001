@@ -1,5 +1,9 @@
 @extends('admin.layout.gong')
+<<<<<<< HEAD
 @section('title', '商品添加')
+=======
+@section('title', '角色列表')
+>>>>>>> zxp
 @section('content')
     <center><h1>角色列表<a style="float:right" href="{{url('/role/create')}}" type="button" class="btn btn-info">添加</a></h1></center><hr/>
     <div class="table-responsive">
@@ -54,7 +58,7 @@
             var id = $(this).attr('id');
             var isdel = confirm('确定删除吗?');
             if(isdel == true){
-                $.get('/brand/destroy/'+id,function(rest){
+                $.get('/role/destroy/'+id,function(rest){
                     if(rest.error_no == '1'){
                         location.reload();
                     }

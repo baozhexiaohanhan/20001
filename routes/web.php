@@ -52,7 +52,7 @@ Route::prefix('goods')->middleware('checklogin')->group(function() {
     Route::post('update/{goods_id}', 'GoodsController@update');
     Route::get('destroy/{goods_id}', 'GoodsController@destroy');
     Route::post('upload', 'GoodsController@upload');
-
+    Route::get('item', 'GoodsController@item');
     
 });
 
@@ -68,6 +68,7 @@ Route::prefix('goods')->middleware('checklogin')->group(function() {
         Route::get('/', 'Admin\RoleController@index')->name('role');
         Route::get('/create', 'Admin\RoleController@create')->name('role.create');
         Route::post('/store', 'Admin\RoleController@store');
+        Route::get('/destroy/{id}', 'Admin\RoleController@destroy');
     });
 
     Route::prefix('menu')->group(function () {
@@ -88,6 +89,7 @@ Route::prefix('goods')->middleware('checklogin')->group(function() {
         Route::get('/create', 'Admin\TypeController@create')->name('type.create');
         Route::post('/store', 'Admin\TypeController@store');
         Route::get('/attr/{id}', 'Admin\TypeController@attr');
+         Route::get('/destroy/{id}', 'Admin\TypeController@destroy');
     });
     Route::prefix('attr')->group(function () {
         Route::get('/', 'Admin\AttrController@index')->name('index');
