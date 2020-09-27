@@ -20,18 +20,15 @@
 				<div class="form-group">
 					<label for="firstname" class="col-sm-2 control-label">商品名称</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="firstname" name="goods_name" 
-								placeholder="商品名称">
-								<b style="color:red">{{$errors->first('goods_name')}}</b>
+						<input type="text" class="form-control" id="firstname" name="goods_name" placeholder="商品名称">
+						<b style="color:red">{{$errors->first('goods_name')}}</b>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="firstname" class="col-sm-2 control-label">商品型号</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="firstname" name="goods_xinghao" 
-								placeholder="商品货号">
-								<b style="color:red">{{$errors->first('goods_xinghao')}}</b>
-
+						<input type="text" class="form-control" id="firstname" name="goods_xinghao" placeholder="商品货号">
+						<b style="color:red">{{$errors->first('goods_xinghao')}}</b>
 					</div>
 				</div>
 
@@ -64,36 +61,27 @@
 				<div class="form-group">
 					<label for="firstname" class="col-sm-2 control-label">商品图片</label>
 					<div class="col-sm-10">
-						<input type="file" class="form-control" id="firstname"  name="goods_img" 
-								placeholder="商品主图">
-								
-
+						<input type="file" class="form-control" id="firstname"  name="goods_img" placeholder="商品主图">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="firstname" class="col-sm-2 control-label">商品相册</label>
 					<div class="col-sm-10">
-						<input type="file" class="form-control" id="firstname"  name="goods_imgs[]" multiple="multiple"  
-								placeholder="商品相册">
-
+						<input type="file" class="form-control" id="firstname"  name="goods_imgs[]" multiple="multiple" placeholder="商品相册">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="firstname" class="col-sm-2 control-label">商品价格</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="firstname"  name="goods_price" 
-								placeholder="价格">
-								<b style="color:red">{{$errors->first('goods_price')}}</b>
-
+						<input type="text" class="form-control" id="firstname"  name="goods_price" placeholder="价格">
+						<b style="color:red">{{$errors->first('goods_price')}}</b>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="firstname" class="col-sm-2 control-label">商品库存</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="firstname"  name="goods_kucun" 
-								placeholder="库存">
-								<b style="color:red">{{$errors->first('goods_kucun')}}</b>
-
+						<input type="text" class="form-control" id="firstname"  name="goods_kucun" placeholder="库存">
+						<b style="color:red">{{$errors->first('goods_kucun')}}</b>
 					</div>
 				</div>
 				<div class="form-group">
@@ -101,7 +89,6 @@
 					<div class="col-sm-10">
 						<input type="radio"  id="firstname"  name="is_zhanshi" value="是" checked>是
 						<input type="radio"  id="firstname"  name="is_zhanshi"value="否">否
-
 					</div>
 				</div>
 				<div class="form-group">
@@ -162,11 +149,9 @@
 							<td>
 							  <select name="goods_type" onchange="getAttrList(0)">
 								<option value="0">请选择商品类型</option>
-								<option value="1">书</option><option value="2">音乐</option><option value="3">电影</option>
-								<option value="4">手机</option><option value="5">笔记本电脑</option>
-								<option value="6">数码相机</option><option value="7">数码摄像机</option>
-								<option value="8">化妆品</option><option value="9">精品手机</option>
-								<option value="10">服装</option>
+								@foreach($type as $v)
+								<option value="{{$v->cat_id}}">{{$v->cat_name}}</option>
+								@endforeach
 							  </select><br>
 								<span class="notice-span" style="display:block" id="noticeGoodsType">请选择商品的所属类型，进而完善此商品的属性</span>
 							</td>
@@ -194,20 +179,20 @@
 <script src="/layui/layui.all.js"></script>
 
 <script>
-layui.use(['element','layedit'], function(){
-	var element = layui.element;
-  var layedit = layui.layedit;
-	layedit.set({
-  	uploadImage: {
-    	url: '/goods/upload' //接口url
-    	,type: 'post' //默认post
-  	}
+	layui.use(['element','layedit'], function(){
+		var element = layui.element;
+		var layedit = layui.layedit;
+		layedit.set({
+			uploadImage: {
+				url: '/goods/upload' //接口url
+				,type: 'post' //默认post
+			}
+		});
+		layedit.build('demo',{
+		height: 300
+		//设置编辑器高度
+		}); //建立编辑器
 	});
-  layedit.build('demo',{
-  height: 300
-   //设置编辑器高度
-	}); //建立编辑器
-});
 </script>
 
 

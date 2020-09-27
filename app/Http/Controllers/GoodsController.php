@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use App\Model\Cate;
 use App\Model\Brand;
+use App\Model\Type;
 use DB;
 use App\Goods;
 class GoodsController extends Controller
@@ -38,10 +39,11 @@ class GoodsController extends Controller
     public function create()
     {
 
-        $data=Cate::get();
+        $data = Cate::get();
         $cate = $this->level($data);
-        $brand=Brand::get();
-        return view('goods.create',['cate'=>$cate,'brand'=>$brand]);
+        $brand = Brand::get();
+        $type = Type::get();
+        return view('goods.create',['cate'=>$cate,'brand'=>$brand,'type'=>$type]);
     }
   
 
