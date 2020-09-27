@@ -197,7 +197,4 @@ public function upload($img)
 
     }
 
-    public function item(){
-         return view('goods.item');
-    }
 }

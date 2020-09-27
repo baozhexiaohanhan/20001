@@ -52,11 +52,14 @@ Route::prefix('goods')->middleware('checklogin')->group(function() {
     Route::post('update/{goods_id}', 'GoodsController@update');
     Route::get('destroy/{goods_id}', 'GoodsController@destroy');
     Route::post('upload', 'GoodsController@upload');
-    Route::get('item', 'GoodsController@item');
     
 });
 
+Route::prefix('index')->middleware('checklogin')->group(function() {
+    Route::get('item', 'IndexController@item');
+    Route::get('index', 'IndexController@index');
 
+});
 
 //管理员
     Route::get('/admin/index', 'Admin\AdminController@index');
