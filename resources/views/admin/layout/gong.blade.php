@@ -111,7 +111,7 @@
                     <a href="javascript:;">广告</a>
                     <dl class="layui-nav-child">
                         <dd><a href="/creates">添加广告</a></dd>
-                        <dd><a href="/index">广告列表</a></dd>
+                        <dd><a href="/ad">广告列表</a></dd>
                     </dl>
                 </li>
             </ul>

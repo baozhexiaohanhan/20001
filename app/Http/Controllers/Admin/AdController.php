@@ -10,8 +10,8 @@ class AdController extends Controller
     
 
 	public function ad(){
-			
-			return view('ad.ad');
+		$res = Ad::all();
+			return view('ad.ad',['res'=>$res]);
 	}
 
 	public function creates(){
