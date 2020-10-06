@@ -99,3 +99,16 @@ Route::prefix('index')->middleware('checklogin')->group(function() {
         Route::get('/create/{id}', 'Admin\AttrController@create')->name('attr.create');
         Route::post('/store', 'Admin\AttrController@store');
     });
+
+//广告
+Route::get('/list','Admin\PosterController@list');
+Route::get('/create','Admin\PosterController@create');
+Route::post('/poster/store', 'Admin\PosterController@store');
+Route::get('/poster/destroy/{id}','Admin\PosterController@destroy');//删除
+
+
+Route::get('/ad','Admin\AdController@ad');//列表
+Route::get('/creates','Admin\AdController@creates');//添加
+Route::post('/ad/store', 'Admin\AdController@store');
+Route::get('/ad/destroy/{id}','Admin\AdController@destroy');//删除
+

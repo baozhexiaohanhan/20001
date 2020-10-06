@@ -100,6 +100,20 @@
                         <dd><a href="/type">属性列表</a></dd>
                     </dl>
                 </li>
+                 <li class="layui-nav-item">
+                    <a href="javascript:;">广告管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/create">添加广告位置</a></dd>
+                        <dd><a href="/list">广告列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">广告</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/creates">添加广告</a></dd>
+                        <dd><a href="/index">广告列表</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>
