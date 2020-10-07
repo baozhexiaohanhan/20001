@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
-    //指定表面
-    protected $table = 'brand';
-    protected $primaryKey = 'brand_id';
-    public $timestamps = false;
+     protected $table = 'brand';
+    // protected $guarded = [];
+    protected $primaryKey = "brand_id";
 
-    //黑名单
-    protected $guarded = [];
+    protected $fillable = ['brand_name','brand_url','brand_logo','brand_desc'];
+    // public $timestamps = false;
+
 }

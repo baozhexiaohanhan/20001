@@ -3,6 +3,13 @@
 /public/storage
 /storage/*.key
 /vendor
+/.idea
+/.editorconfig
+/.gitattributes
+/.gitignore
+/.styleci.yml
+/README.md
+/.env.example
 .env
 .env.backup
 .phpunit.result.cache

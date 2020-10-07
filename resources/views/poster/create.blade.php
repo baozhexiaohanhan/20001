@@ -1,61 +1,42 @@
-@extends('admin.layout.gong')
-@section('title', '商品添加')
+@extends('layout.layout')
+@section('title', '广告位')
 @section('content')
-    <span class="layui-breadcrumb" >
-  <a href="/admin/index">首页</a>
-  <a href="javascript:;">广告管理</a>
-  <a><cite>广告添加</cite></a>
-</span>
-    @if ($errors->any())
-        <div class="alert alert-danger" style=' margin-top:10px;padding-left:20px;padding-top:10px;padding-bottom:10px; background-color:pink;'>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li style="color:#ff0000; margin-top:6px;">.{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-<form action="{{url('/poster/store')}}" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
-            <div class="form-group">
-            <label for="firstname" class="col-sm-2 control-label">广告位名称</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="firstname" name="position_name"
-                       placeholder="请输入品牌网址">
-            </div>
-        </div>
-
-          <div class="form-group">
-            <label for="firstname" class="col-sm-2 control-label">广告位宽度</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="firstname" name="ad_width"
-                       placeholder="请输入广告位名称">
-            </div>
-        </div>
-          <div class="form-group">
-            <label for="firstname" class="col-sm-2 control-label">广告位高度</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="firstname" name="ad_height"
-                       placeholder="请输入广告位高度">
-            </div>
-        </div>
-
-           <div class="form-group">
-            <label for="firstname" class="col-sm-2 control-label">广告位描述</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="firstname" name="position_desc"
-                       placeholder="请输入广告位高度">
-            </div>
-        </div>
-         <div class="form-group">
-            <label for="firstname" class="col-sm-2 control-label">广告模板</label>
-            <div class="col-sm-8">
-      <textarea type="text" class="form-control" id="firstname" name="position_style"
-                      placeholder="请输入广告模板"></textarea>
-            </div>
-        </div>
-
-        <button type="submit" style="margin-left:35px; margin-top:10px;" class="layui-btn">添加</button>
-    </form>
+<form action="{{url('/poster/store')}}" method="post" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+    <table width="100%">
+        <tbody>
+        <tr>
+            <td>广告位名称</td>
+            <td><input type="text" name="position_name" value="" size="30"></td>
+        </tr>
+        <tr>
+            <td>广告位宽度</td>
+            <td><input type="text" name="ad_width" value="" size="30"> 像素</td>
+        </tr>
+        <tr>
+            <td>广告位高度</td>
+            <td>
+                <input type="text" name="ad_height" value="" size="30">像素</td>
+        </tr>
+        <tr>
+            <td>广告位描述</td>
+            <td>
+                <input type="text" name="position_desc" size="55" value="">
+            </td>
+        </tr>
+        <tr>
+            <td>广告位模板</td>
+            <td>
+          <textarea name="position_style" cols="55" rows="6"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">&nbsp;</td>
+            <td>
+                <input type="submit" value=" 确定 " class="button">
+                <input type="reset" value=" 重置 " class="button">
+            </td>
+        </tr>
+        </tbody></table>
+</form>
 
 @endsection
-
