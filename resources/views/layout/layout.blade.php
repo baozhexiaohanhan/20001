@@ -99,6 +99,13 @@
             <dd><a href="/goodstype/list">类型列表</a></dd>
           </dl>
         </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">秒杀</a>
+          <dl class="layui-nav-child">
+            <dd><a href="">添加秒杀</a></dd>
+            <dd><a href="">秒杀列表</a></dd>
+          </dl>
+        </li>
       </ul>
     </div>
   </div>

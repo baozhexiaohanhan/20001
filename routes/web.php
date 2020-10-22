@@ -110,3 +110,13 @@ Route::prefix('/goodstype')->group(function(){
   //登录
   Route::get('/login','Login\LoginController@login');
   Route::post('/logindo','Login\LoginController@logindo');
+
+
+
+
+
+
+
+Route::get('/seckil/create','seckil\SeckilController@create');
+Route::any('/seckil/store','seckil\SeckilController@store');
+Route::any('/seckil/list','seckil\SeckilController@list');
